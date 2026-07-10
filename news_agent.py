@@ -26,8 +26,8 @@ FEEDS = [
 ]
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
-MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
-MAX_BULLETS = 8            # teto de bullets na mensagem final
+MAX_ITEMS_TO_CLAUDE = 20   # teto de headlines por ciclo
+MAX_BULLETS = 3            # teto de bullets na mensagem final
 SENT_IDS_FILE = "sent_ids.json"
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
