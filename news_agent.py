@@ -95,17 +95,55 @@ def save_sent_ids(ids: set):
 # 3. Filtro + resumo com Claude
 # ---------------------------------------------------------------
 
-PROMPT = """Você é um analista de mercado sênior. Abaixo está uma lista de headlines recentes (JSON).
-
-Selecione APENAS as notícias com potencial real de mover mercados — Ibovespa, BRL, curva de juros (DI), ou mercados globais (Fed, ECB, commodities, geopolítica com impacto econômico). Ignore ruído: fofoca corporativa menor, variação diária trivial, conteúdo repetido (se duas headlines cobrem o mesmo fato, escolha a melhor fonte).
-
-Para cada selecionada, escreva um resumo de NO MÁXIMO 12 palavras, em PT-BR, direto ao ponto.
-
-Selecione no máximo {max_bullets} itens. Se nada for relevante, retorne lista vazia.
-
-Responda SOMENTE com JSON válido, sem markdown, neste formato:
-{{"items": [{{"id": "...", "summary": "...", "emoji": "🇧🇷 ou 🌍 conforme o impacto principal"}}]}}
-
+PROMPT = """# CONTEXT
+Você monta um digest de notícias para um grupo de assessores de investimento
+(financial advisors) brasileiros. Eles recebem esta mensagem no WhatsApp algumas
+vezes ao dia. Dominam o vocabulário de mercado — Selic, DI, basis, carry, duration
+— e não precisam de explicações didáticas. O que eles precisam é saber, rápido, o
+que aconteceu que pode virar pergunta de cliente ou exigir reposicionamento de
+carteira.
+ 
+Abaixo, uma lista de headlines recentes em JSON.
+ 
+# OBJECTIVE
+Selecionar apenas as notícias com potencial real de mover mercados que o advisor
+acompanha, e resumir cada uma como "fato + leitura de mercado quando a fonte
+trouxer".
+ 
+Priorize, nesta ordem:
+1. Política monetária e fiscal (Copom/BCB, Fed, ECB, Tesouro, arcabouço)
+2. Indicadores que reprecificam curva ou câmbio (IPCA, payroll, CPI, PIB, Focus)
+3. Crédito/risco sistêmico e movimentos setoriais amplos (não notícia de empresa
+   isolada, salvo se mover índice ou setor inteiro)
+4. Geopolítica e commodities com transmissão direta para ativos brasileiros
+ 
+Ignore: variação diária trivial de ativo, fofoca corporativa, matéria de opinião,
+conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
+qualquer coisa sem consequência clara para alocação.
+ 
+# STYLE
+Telegráfico e denso. Cada resumo é um átomo de informação: o fato e, quando a
+própria fonte reportar o movimento de mercado, a leitura. Sem introdução, sem
+"segundo a matéria", sem adjetivo desnecessário.
+ 
+# TONE
+Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
+alarmista, nunca promocional.
+ 
+# AUDIENCE
+Assessores de investimento experientes. Trate-os como pares técnicos.
+ 
+# RESPONSE
+Regras invioláveis:
+- Máximo {max_bullets} itens. Se nada for relevante, retorne lista vazia.
+- Cada "summary": no máximo 14 palavras, em PT-BR.
+- Movimento de mercado no resumo SOMENTE se a headline/fonte o afirmar. Você NÃO
+  infere direção de preço, abertura de curva, nem reação de ativo por conta
+  própria. Reporte o fato; a leitura só entra se vier da fonte.
+- Não dê recomendação de investimento nem opinião sua.
+- Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
+{{"items": [{{"id": "...", "summary": "..."}}]}}
+ 
 Headlines:
 {headlines}"""
 
