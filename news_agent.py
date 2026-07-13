@@ -1,6 +1,7 @@
 """
 Radar de Mercado — agente de notícias para WhatsApp
-Fluxo: RSS -> dedupe -> Claude (filtro + resumo) -> Evolution API (grupo WhatsApp)
+Fluxo: RSS -> dedupe (id + intra-day) -> Claude seleciona -> busca corpo real
+(trafilatura) -> Claude redige por artigo -> Evolution API (grupo WhatsApp)
 """
 
 import json
@@ -9,6 +10,8 @@ import re
 import hashlib
 import requests
 import feedparser
+import trafilatura
+from trafilatura.settings import use_config
 from datetime import datetime, timedelta, timezone
 
 # ---------------------------------------------------------------
@@ -28,10 +31,15 @@ FEEDS = [
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
 MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
-MAX_BULLETS = 5            # teto de NOTÍCIAS na mensagem final
+MAX_NEWS = 5               # teto de NOTÍCIAS na mensagem final
+MAX_BODY_CHARS = 6000      # teto do texto extraído por artigo (controla custo/tokens)
 SENT_IDS_FILE = "sent_ids.json"
 SENT_TODAY_FILE = "sent_today.json"   # memória intra-day (dedupe semântico)
 MAX_SENT_TODAY = 100       # cap defensivo (um dia real fica bem abaixo disso)
+
+# timeout curto no download do corpo — o job do Actions não pode travar num feed lento
+_TRAFILATURA_CFG = use_config()
+_TRAFILATURA_CFG.set("DEFAULT", "DOWNLOAD_TIMEOUT", "20")
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
@@ -95,6 +103,33 @@ def fetch_articles() -> list[dict]:
 
 
 # ---------------------------------------------------------------
+# 1b. Corpo real do artigo (trafilatura)
+# ---------------------------------------------------------------
+
+def fetch_article_body(link: str) -> str | None:
+    """Baixa a página e extrai o texto principal. Devolve None se falhar
+    (paywall, bloqueio, timeout) — o chamador cai de volta pro summary do RSS."""
+    if not link:
+        return None
+    try:
+        downloaded = trafilatura.fetch_url(link, config=_TRAFILATURA_CFG)
+        if not downloaded:
+            return None
+        text = trafilatura.extract(
+            downloaded,
+            include_comments=False,
+            include_tables=False,
+            config=_TRAFILATURA_CFG,
+        )
+        if not text:
+            return None
+        return text.strip()[:MAX_BODY_CHARS]
+    except Exception as ex:
+        print(f"[warn] extração de corpo falhou {link}: {ex}")
+        return None
+
+
+# ---------------------------------------------------------------
 # 2. Dedupe
 # ---------------------------------------------------------------
 
@@ -146,24 +181,44 @@ def format_sent_today(headlines: list[dict]) -> str:
 
 
 # ---------------------------------------------------------------
-# 3. Filtro + resumo com Claude
+# 3. Filtro + redação com Claude (duas passadas)
 # ---------------------------------------------------------------
 
-PROMPT = """# CONTEXT
-Você monta um digest de notícias para um grupo de assessores de investimento
-(financial advisors) brasileiros. Eles recebem esta mensagem no WhatsApp algumas
-vezes ao dia. Dominam o vocabulário de mercado — Selic, DI, basis, carry, duration
-— e não precisam de explicações didáticas. O que eles precisam é saber, rápido, o
-que aconteceu que pode virar pergunta de cliente ou exigir reposicionamento de
+def call_claude(prompt: str, max_tokens: int) -> str:
+    """Uma chamada ao Haiku. Devolve o texto já sem cercas de markdown."""
+    resp = requests.post(
+        "https://api.anthropic.com/v1/messages",
+        headers={
+            "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        json={
+            "model": ANTHROPIC_MODEL,
+            "max_tokens": max_tokens,
+            "messages": [{"role": "user", "content": prompt}],
+        },
+        timeout=120,
+    )
+    resp.raise_for_status()
+    text = resp.json()["content"][0]["text"]
+    return text.replace("```json", "").replace("```", "").strip()
+
+
+# --- Passada 1: seleção (título + summary) -----------------------
+
+SELECT_PROMPT = """# CONTEXT
+Você faz a curadoria de um digest de notícias para um grupo de assessores de
+investimento (financial advisors) brasileiros. Dominam o vocabulário de mercado —
+Selic, DI, basis, carry, duration — e não precisam de explicação didática. O que
+importa é o que pode virar pergunta de cliente ou exigir reposicionamento de
 carteira.
 
-Abaixo, uma lista de notícias recentes em JSON. Cada item tem "title" (manchete
-original) e "summary" (trecho da matéria). Use o summary como fonte dos detalhes.
+Abaixo, notícias recentes em JSON, cada uma com "title" e "summary" (trecho curto
+do RSS). Sua tarefa é APENAS SELECIONAR — não escreva manchete nem bullets agora.
 
 # OBJECTIVE
-Selecionar as notícias com potencial real de mover mercados que o advisor
-acompanha. Para cada uma, escrever uma MANCHETE curta e de 2 a 3 BULLETS de
-detalhe.
+Escolher as notícias com potencial real de mover mercados que o advisor acompanha.
 
 Priorize, nesta ordem:
 1. Política monetária e fiscal (Copom/BCB, Fed, ECB, Tesouro, arcabouço)
@@ -174,96 +229,120 @@ Priorize, nesta ordem:
 
 Ignore: variação diária trivial de ativo, fofoca corporativa, matéria de opinião,
 conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
-qualquer coisa sem consequência clara para alocação.
-
-# STYLE
-Telegráfico e denso. A manchete resume o fato central em poucas palavras. Cada
-bullet extrai um dado concreto do summary fornecido: número, declaração, valor, o
-que foi decidido. Se o summary não trouxer detalhe suficiente para 2 bullets
-factuais, escreva menos bullets — nunca preencha com paráfrase da manchete nem com
-contexto que você presume. Sem introdução, sem "segundo a matéria", sem adjetivo
-desnecessário.
-
-# TONE
-Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
-alarmista, nunca promocional.
-
-# AUDIENCE
-Assessores de investimento experientes. Trate-os como pares técnicos.
+qualquer coisa sem consequência clara para alocação. Escopo geográfico: só o que
+afeta o mercado brasileiro ou os bancos centrais que transmitem para o Brasil.
 
 # JÁ ENVIADO HOJE
 As manchetes abaixo já foram enviadas ao grupo HOJE. NÃO selecione uma notícia
 cujo fato central já esteja nesta lista, mesmo que venha de outra fonte ou outro
 link — o grupo já viu. ÚNICA exceção: desdobramento com informação materialmente
 nova sobre o mesmo tema (ata divulgada após a decisão, novo número, revisão,
-reversão). Nesse caso pode entrar, enquadrado como atualização — nunca repetindo
-o que já foi dito. Na dúvida entre repetição e fato novo, corte.
+reversão). Na dúvida entre repetição e fato novo, corte.
 
 {sent_today}
 
 # RESPONSE
-Regras invioláveis:
-- No máximo {max_bullets} notícias. É melhor 2 notícias fortes que 5 fracas. Se só
-  houver 1 relevante, envie 1. Se nenhuma for relevante, retorne lista vazia.
+- No máximo {max_news} notícias. É melhor 2 fortes que 5 fracas. Se só houver 1
+  relevante, selecione 1. Se nenhuma for relevante, retorne lista vazia.
 - Quando houver mais candidatas que o limite, corte primeiro as de menor impacto
   direto em preço de ativo brasileiro.
-- "headline": manchete curta, no máximo 10 palavras, em PT-BR.
-- "bullets": 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR, extraídos do
-  summary fornecido.
-- Leitura ou reação de mercado (mercado já precificava, curva abriu, ativo caiu)
-  SOMENTE se o title ou summary a afirmar. Você NUNCA infere direção de preço nem
-  reação por conta própria. Na dúvida, reporte só o fato.
-- Não dê recomendação de investimento nem opinião sua.
+- Ordene do MAIS para o MENOS relevante.
 - Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
-{{"items": [{{"id": "...", "headline": "...", "bullets": ["...", "..."]}}]}}
+{{"ids": ["...", "..."]}}
 
 Notícias:
 {headlines}"""
 
 
-def filter_with_claude(articles: list[dict], sent_today: list[dict]) -> list[dict]:
+def select_with_claude(articles: list[dict], sent_today: list[dict]) -> list[str]:
     headlines = [
         {"id": a["id"], "title": a["title"], "summary": a["summary"], "source": a["source"]}
         for a in articles
     ]
-    resp = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": ANTHROPIC_MODEL,
-            "max_tokens": 1500,
-            "messages": [{
-                "role": "user",
-                "content": PROMPT.format(
-                    max_bullets=MAX_BULLETS,
-                    sent_today=format_sent_today(sent_today),
-                    headlines=json.dumps(headlines, ensure_ascii=False),
-                ),
-            }],
-        },
-        timeout=120,
+    text = call_claude(
+        SELECT_PROMPT.format(
+            max_news=MAX_NEWS,
+            sent_today=format_sent_today(sent_today),
+            headlines=json.dumps(headlines, ensure_ascii=False),
+        ),
+        max_tokens=500,
     )
-    resp.raise_for_status()
-    text = resp.json()["content"][0]["text"]
-    text = text.replace("```json", "").replace("```", "").strip()
-    selected = json.loads(text)["items"]
+    ids = json.loads(text).get("ids", [])
+    valid = {a["id"] for a in articles}
+    # preserva a ordem de relevância, remove duplicatas e ids inválidos, aplica teto
+    seen, out = set(), []
+    for i in ids:
+        if i in valid and i not in seen:
+            seen.add(i)
+            out.append(i)
+    return out[:MAX_NEWS]
 
-    by_id = {a["id"]: a for a in articles}
-    result = []
-    for item in selected:
-        art = by_id.get(item["id"])
-        if not art:
-            continue
-        headline = item.get("headline", "").strip()
-        bullets = [b.strip() for b in item.get("bullets", []) if b.strip()]
-        if not headline or not bullets:
-            continue
-        result.append({**art, "headline": headline, "bullets": bullets})
-    return result
+
+# --- Passada 2: redação (uma chamada por artigo, com o texto real) -----
+
+WRITE_PROMPT = """# CONTEXT
+Você escreve um item de digest para assessores de investimento brasileiros. São
+pares técnicos — dominam Selic, DI, carry, duration. Nada de explicação didática.
+
+Recebe UMA notícia já selecionada como relevante: o título e o TEXTO da matéria.
+Use o texto como fonte dos detalhes.
+
+# OBJECTIVE
+Escrever uma MANCHETE curta e de 2 a 3 BULLETS de detalhe, extraídos do texto.
+
+# STYLE
+Telegráfico e denso. A manchete resume o fato central em poucas palavras. Cada
+bullet extrai um dado concreto do texto: número, declaração, valor, o que foi
+decidido. Se o texto não trouxer detalhe suficiente para 2 bullets factuais,
+escreva menos bullets — nunca preencha com paráfrase da manchete nem com contexto
+que você presume. Sem introdução, sem "segundo a matéria", sem adjetivo
+desnecessário.
+
+# TONE
+Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
+alarmista, nunca promocional.
+
+# ANTI-INFERÊNCIA (regra mais importante)
+Leitura ou reação de mercado (mercado já precificava, curva abriu, ativo caiu)
+SOMENTE se o texto a afirmar. Você NUNCA infere direção de preço nem reação por
+conta própria. Na dúvida, reporte só o fato. Não dê recomendação nem opinião.
+
+# RESPONSE
+- "headline": manchete curta, no máximo 10 palavras, em PT-BR.
+- "bullets": 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR, extraídos do
+  texto.
+- Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
+{{"headline": "...", "bullets": ["...", "..."]}}
+
+Notícia:
+Título: {title}
+Fonte: {source}
+Texto:
+{body}"""
+
+
+def write_item(article: dict) -> dict | None:
+    """Redige headline+bullets de UM artigo, com o corpo real (ou o summary
+    como fallback). Devolve None se a resposta vier vazia ou inválida."""
+    body = article.get("body") or article["summary"]
+    text = call_claude(
+        WRITE_PROMPT.format(
+            title=article["title"],
+            source=article["source"],
+            body=body,
+        ),
+        max_tokens=600,
+    )
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        print(f"[warn] JSON inválido na redação de {article['id']}")
+        return None
+    headline = data.get("headline", "").strip()
+    bullets = [b.strip() for b in data.get("bullets", []) if b.strip()]
+    if not headline or not bullets:
+        return None
+    return {**article, "headline": headline, "bullets": bullets}
 
 
 # ---------------------------------------------------------------
@@ -320,14 +399,30 @@ def main():
         return
 
     articles = articles[:MAX_ITEMS_TO_CLAUDE]
-    selected = filter_with_claude(articles, sent_today)
+
+    # Passada 1: seleção por título + summary
+    selected_ids = select_with_claude(articles, sent_today)
+    by_id = {a["id"]: a for a in articles}
+    selected = [by_id[i] for i in selected_ids]
     print(f"[info] {len(selected)} selecionadas pelo Claude")
 
-    if selected:
-        send_whatsapp(build_message(selected))
+    # Busca o corpo real de cada selecionada (fallback: summary do RSS)
+    for art in selected:
+        body = fetch_article_body(art.get("link", ""))
+        if body:
+            art["body"] = body
+        else:
+            print(f"[warn] sem corpo, usando summary: {art['source']}")
+
+    # Passada 2: redação, uma chamada por artigo, com o texto em mãos
+    items = [w for art in selected if (w := write_item(art))]
+    print(f"[info] {len(items)} redigidas")
+
+    if items:
+        send_whatsapp(build_message(items))
         # registra na memória intra-day só o que foi realmente enviado
         hora = now_brt().strftime("%Hh%M")
-        sent_today.extend({"time": hora, "headline": it["headline"]} for it in selected)
+        sent_today.extend({"time": hora, "headline": it["headline"]} for it in items)
         save_sent_today(sent_today)
 
     # marca TODAS as vistas (mesmo as descartadas) pra não reavaliar
