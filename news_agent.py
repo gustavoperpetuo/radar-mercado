@@ -30,6 +30,8 @@ MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
 MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
 MAX_BULLETS = 5            # teto de NOTÍCIAS na mensagem final
 SENT_IDS_FILE = "sent_ids.json"
+SENT_TODAY_FILE = "sent_today.json"   # memória intra-day (dedupe semântico)
+MAX_SENT_TODAY = 100       # cap defensivo (um dia real fica bem abaixo disso)
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
@@ -38,6 +40,15 @@ EVOLUTION_BASE_URL = os.environ["EVOLUTION_BASE_URL"].rstrip("/")   # ex: https:
 EVOLUTION_API_KEY = os.environ["EVOLUTION_API_KEY"]
 EVOLUTION_INSTANCE = os.environ["EVOLUTION_INSTANCE"]               # nome da instância criada na Evolution
 WHATSAPP_GROUP_JID = os.environ["WHATSAPP_GROUP_JID"]               # ex: 120363123456789012@g.us
+
+
+# ---------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------
+
+def now_brt() -> datetime:
+    """Horário atual em BRT (UTC-3 fixo; o Brasil não tem mais horário de verão)."""
+    return datetime.now(timezone.utc) - timedelta(hours=3)
 
 
 # ---------------------------------------------------------------
@@ -101,6 +112,40 @@ def save_sent_ids(ids: set):
 
 
 # ---------------------------------------------------------------
+# 2b. Memória intra-day (dedupe semântico)
+# ---------------------------------------------------------------
+
+def load_sent_today() -> list[dict]:
+    """Manchetes já enviadas HOJE (BRT). Zera sozinha à meia-noite BRT:
+    se a data gravada for de outro dia, devolve lista vazia (reset preguiçoso)."""
+    today = now_brt().strftime("%Y-%m-%d")
+    if os.path.exists(SENT_TODAY_FILE):
+        try:
+            with open(SENT_TODAY_FILE, encoding="utf-8") as f:
+                data = json.load(f)
+            if data.get("date") == today:
+                return data.get("headlines", [])
+        except (json.JSONDecodeError, OSError):
+            pass
+    return []   # dia novo, arquivo ausente ou corrompido -> memória vazia
+
+
+def save_sent_today(headlines: list[dict]):
+    with open(SENT_TODAY_FILE, "w", encoding="utf-8") as f:
+        json.dump(
+            {"date": now_brt().strftime("%Y-%m-%d"),
+             "headlines": headlines[-MAX_SENT_TODAY:]},
+            f, ensure_ascii=False, indent=2,
+        )
+
+
+def format_sent_today(headlines: list[dict]) -> str:
+    if not headlines:
+        return "(nada enviado ainda hoje)"
+    return "\n".join(f"- [{h.get('time', '')}] {h['headline']}" for h in headlines)
+
+
+# ---------------------------------------------------------------
 # 3. Filtro + resumo com Claude
 # ---------------------------------------------------------------
 
@@ -146,6 +191,16 @@ alarmista, nunca promocional.
 # AUDIENCE
 Assessores de investimento experientes. Trate-os como pares técnicos.
 
+# JÁ ENVIADO HOJE
+As manchetes abaixo já foram enviadas ao grupo HOJE. NÃO selecione uma notícia
+cujo fato central já esteja nesta lista, mesmo que venha de outra fonte ou outro
+link — o grupo já viu. ÚNICA exceção: desdobramento com informação materialmente
+nova sobre o mesmo tema (ata divulgada após a decisão, novo número, revisão,
+reversão). Nesse caso pode entrar, enquadrado como atualização — nunca repetindo
+o que já foi dito. Na dúvida entre repetição e fato novo, corte.
+
+{sent_today}
+
 # RESPONSE
 Regras invioláveis:
 - No máximo {max_bullets} notícias. É melhor 2 notícias fortes que 5 fracas. Se só
@@ -166,7 +221,7 @@ Notícias:
 {headlines}"""
 
 
-def filter_with_claude(articles: list[dict]) -> list[dict]:
+def filter_with_claude(articles: list[dict], sent_today: list[dict]) -> list[dict]:
     headlines = [
         {"id": a["id"], "title": a["title"], "summary": a["summary"], "source": a["source"]}
         for a in articles
@@ -185,6 +240,7 @@ def filter_with_claude(articles: list[dict]) -> list[dict]:
                 "role": "user",
                 "content": PROMPT.format(
                     max_bullets=MAX_BULLETS,
+                    sent_today=format_sent_today(sent_today),
                     headlines=json.dumps(headlines, ensure_ascii=False),
                 ),
             }],
@@ -215,7 +271,7 @@ def filter_with_claude(articles: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------
 
 def build_message(items: list[dict]) -> str:
-    now = datetime.now(timezone.utc) - timedelta(hours=3)  # BRT
+    now = now_brt()
     lines = [f"*Radar de Mercado* — {now.strftime('%d/%m %Hh%M')}", ""]
     for it in items:
         lines.append(f"*{it['headline']}*")
@@ -257,17 +313,22 @@ def send_whatsapp(text: str):
 
 def main():
     sent = load_sent_ids()
+    sent_today = load_sent_today()   # já zerado se for um novo dia BRT
     articles = [a for a in fetch_articles() if a["id"] not in sent]
-    print(f"[info] {len(articles)} headlines novas")
+    print(f"[info] {len(articles)} headlines novas | {len(sent_today)} já enviadas hoje")
     if not articles:
         return
 
     articles = articles[:MAX_ITEMS_TO_CLAUDE]
-    selected = filter_with_claude(articles)
+    selected = filter_with_claude(articles, sent_today)
     print(f"[info] {len(selected)} selecionadas pelo Claude")
 
     if selected:
         send_whatsapp(build_message(selected))
+        # registra na memória intra-day só o que foi realmente enviado
+        hora = now_brt().strftime("%Hh%M")
+        sent_today.extend({"time": hora, "headline": it["headline"]} for it in selected)
+        save_sent_today(sent_today)
 
     # marca TODAS as vistas (mesmo as descartadas) pra não reavaliar
     sent.update(a["id"] for a in articles)
