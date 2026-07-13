@@ -19,6 +19,7 @@ FEEDS = [
     "https://www.infomoney.com.br/feed/",
     "https://g1.globo.com/rss/g1/economia/",
     "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
+    "https://valor.globo.com/",
     # Global
     "https://feeds.bbci.co.uk/news/business/rss.xml",
     "https://feeds.content.dowjones.io/public/rss/mw_topstories",
@@ -27,7 +28,7 @@ FEEDS = [
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
 MAX_ITEMS_TO_CLAUDE = 20   # teto de headlines por ciclo
-MAX_BULLETS = 3            # teto de bullets na mensagem final
+MAX_BULLETS = 4            # teto de bullets na mensagem final
 SENT_IDS_FILE = "sent_ids.json"
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
