@@ -19,7 +19,6 @@ FEEDS = [
     "https://www.infomoney.com.br/feed/",
     "https://g1.globo.com/rss/g1/economia/",
     "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
-    "https://valor.globo.com/",
     # Global
     "https://feeds.bbci.co.uk/news/business/rss.xml",
     "https://feeds.content.dowjones.io/public/rss/mw_topstories",
@@ -27,8 +26,8 @@ FEEDS = [
 ]
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
-MAX_ITEMS_TO_CLAUDE = 20   # teto de headlines por ciclo
-MAX_BULLETS = 4            # teto de bullets na mensagem final
+MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
+MAX_BULLETS = 8            # teto de bullets na mensagem final
 SENT_IDS_FILE = "sent_ids.json"
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -103,37 +102,37 @@ vezes ao dia. Dominam o vocabulário de mercado — Selic, DI, basis, carry, dur
 — e não precisam de explicações didáticas. O que eles precisam é saber, rápido, o
 que aconteceu que pode virar pergunta de cliente ou exigir reposicionamento de
 carteira.
- 
+
 Abaixo, uma lista de headlines recentes em JSON.
- 
+
 # OBJECTIVE
 Selecionar apenas as notícias com potencial real de mover mercados que o advisor
 acompanha, e resumir cada uma como "fato + leitura de mercado quando a fonte
 trouxer".
- 
+
 Priorize, nesta ordem:
 1. Política monetária e fiscal (Copom/BCB, Fed, ECB, Tesouro, arcabouço)
 2. Indicadores que reprecificam curva ou câmbio (IPCA, payroll, CPI, PIB, Focus)
 3. Crédito/risco sistêmico e movimentos setoriais amplos (não notícia de empresa
    isolada, salvo se mover índice ou setor inteiro)
 4. Geopolítica e commodities com transmissão direta para ativos brasileiros
- 
+
 Ignore: variação diária trivial de ativo, fofoca corporativa, matéria de opinião,
 conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
 qualquer coisa sem consequência clara para alocação.
- 
+
 # STYLE
 Telegráfico e denso. Cada resumo é um átomo de informação: o fato e, quando a
 própria fonte reportar o movimento de mercado, a leitura. Sem introdução, sem
 "segundo a matéria", sem adjetivo desnecessário.
- 
+
 # TONE
 Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
 alarmista, nunca promocional.
- 
+
 # AUDIENCE
 Assessores de investimento experientes. Trate-os como pares técnicos.
- 
+
 # RESPONSE
 Regras invioláveis:
 - Máximo {max_bullets} itens. Se nada for relevante, retorne lista vazia.
@@ -144,7 +143,7 @@ Regras invioláveis:
 - Não dê recomendação de investimento nem opinião sua.
 - Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
 {{"items": [{{"id": "...", "summary": "..."}}]}}
- 
+
 Headlines:
 {headlines}"""
 
@@ -181,7 +180,7 @@ def filter_with_claude(articles: list[dict]) -> list[dict]:
     for item in selected:
         art = by_id.get(item["id"])
         if art:
-            result.append({**art, "summary": item["summary"], "emoji": item.get("emoji", "📌")})
+            result.append({**art, "summary": item["summary"]})
     return result
 
 
@@ -191,9 +190,9 @@ def filter_with_claude(articles: list[dict]) -> list[dict]:
 
 def build_message(items: list[dict]) -> str:
     now = datetime.now(timezone.utc) - timedelta(hours=3)  # BRT
-    lines = [f"📰 *Radar de Mercado* — {now.strftime('%d/%m %Hh%M')}", ""]
+    lines = [f"*Radar de Mercado* — {now.strftime('%d/%m %Hh%M')}", ""]
     for it in items:
-        lines.append(f"{it['emoji']} {it['summary']} _({it['source']})_")
+        lines.append(f"{it['summary']} _({it['source']})_")
         lines.append(it["link"])
         lines.append("")
     return "\n".join(lines).strip()
