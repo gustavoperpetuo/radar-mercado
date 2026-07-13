@@ -27,7 +27,7 @@ FEEDS = [
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
 MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
-MAX_BULLETS = 8            # teto de bullets na mensagem final
+MAX_BULLETS = 5            # teto de NOTÍCIAS na mensagem final
 SENT_IDS_FILE = "sent_ids.json"
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -106,9 +106,9 @@ carteira.
 Abaixo, uma lista de headlines recentes em JSON.
 
 # OBJECTIVE
-Selecionar apenas as notícias com potencial real de mover mercados que o advisor
-acompanha, e resumir cada uma como "fato + leitura de mercado quando a fonte
-trouxer".
+Selecionar as notícias com potencial real de mover mercados que o advisor
+acompanha. Para cada uma, escrever uma MANCHETE curta e de 2 a 3 BULLETS de
+detalhe.
 
 Priorize, nesta ordem:
 1. Política monetária e fiscal (Copom/BCB, Fed, ECB, Tesouro, arcabouço)
@@ -122,9 +122,9 @@ conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
 qualquer coisa sem consequência clara para alocação.
 
 # STYLE
-Telegráfico e denso. Cada resumo é um átomo de informação: o fato e, quando a
-própria fonte reportar o movimento de mercado, a leitura. Sem introdução, sem
-"segundo a matéria", sem adjetivo desnecessário.
+Telegráfico e denso. A manchete resume o fato central em poucas palavras. Cada
+bullet acrescenta um dado concreto: número, declaração, o que foi decidido. Sem
+introdução, sem "segundo a matéria", sem adjetivo desnecessário.
 
 # TONE
 Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
@@ -135,14 +135,15 @@ Assessores de investimento experientes. Trate-os como pares técnicos.
 
 # RESPONSE
 Regras invioláveis:
-- Máximo {max_bullets} itens. Se nada for relevante, retorne lista vazia.
-- Cada "summary": no máximo 14 palavras, em PT-BR.
-- Movimento de mercado no resumo SOMENTE se a headline/fonte o afirmar. Você NÃO
-  infere direção de preço, abertura de curva, nem reação de ativo por conta
-  própria. Reporte o fato; a leitura só entra se vier da fonte.
+- No máximo {max_bullets} notícias. Se nada for relevante, retorne lista vazia.
+- "headline": manchete curta, no máximo 10 palavras, em PT-BR.
+- "bullets": lista de 2 a 3 itens, cada um no máximo 14 palavras, em PT-BR.
+- Leitura ou reação de mercado (mercado já precificava, curva abriu, ativo caiu)
+  SOMENTE se a headline/fonte o afirmar. Você NÃO infere direção de preço nem
+  reação por conta própria. Bullet que não vem da fonte reporta apenas o fato.
 - Não dê recomendação de investimento nem opinião sua.
 - Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
-{{"items": [{{"id": "...", "summary": "..."}}]}}
+{{"items": [{{"id": "...", "headline": "...", "bullets": ["...", "..."]}}]}}
 
 Headlines:
 {headlines}"""
@@ -179,8 +180,13 @@ def filter_with_claude(articles: list[dict]) -> list[dict]:
     result = []
     for item in selected:
         art = by_id.get(item["id"])
-        if art:
-            result.append({**art, "summary": item["summary"]})
+        if not art:
+            continue
+        headline = item.get("headline", "").strip()
+        bullets = [b.strip() for b in item.get("bullets", []) if b.strip()]
+        if not headline or not bullets:
+            continue
+        result.append({**art, "headline": headline, "bullets": bullets})
     return result
 
 
@@ -192,8 +198,10 @@ def build_message(items: list[dict]) -> str:
     now = datetime.now(timezone.utc) - timedelta(hours=3)  # BRT
     lines = [f"*Radar de Mercado* — {now.strftime('%d/%m %Hh%M')}", ""]
     for it in items:
-        lines.append(f"{it['summary']} _({it['source']})_")
-        lines.append(it["link"])
+        lines.append(f"*{it['headline']}*")
+        for b in it["bullets"]:
+            lines.append(f"• {b}")
+        lines.append(f"• Fonte: _{it['source']}_")
         lines.append("")
     return "\n".join(lines).strip()
 
