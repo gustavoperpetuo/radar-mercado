@@ -23,6 +23,7 @@ FEEDS = [
     "https://feeds.bbci.co.uk/news/business/rss.xml",
     "https://feeds.content.dowjones.io/public/rss/mw_topstories",
     "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069",
+    "https://www.reuters.com/",
 ]
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
@@ -137,7 +138,7 @@ Assessores de investimento experientes. Trate-os como pares técnicos.
 Regras invioláveis:
 - No máximo {max_bullets} notícias. Se nada for relevante, retorne lista vazia.
 - "headline": manchete curta, no máximo 10 palavras, em PT-BR.
-- "bullets": lista de 2 a 3 itens, cada um no máximo 14 palavras, em PT-BR.
+- "bullets": lista de 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR.
 - Leitura ou reação de mercado (mercado já precificava, curva abriu, ativo caiu)
   SOMENTE se a headline/fonte o afirmar. Você NÃO infere direção de preço nem
   reação por conta própria. Bullet que não vem da fonte reporta apenas o fato.
