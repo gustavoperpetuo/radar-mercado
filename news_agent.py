@@ -5,6 +5,7 @@ Fluxo: RSS -> dedupe -> Claude (filtro + resumo) -> Evolution API (grupo WhatsAp
 
 import json
 import os
+import re
 import hashlib
 import requests
 import feedparser
@@ -23,7 +24,6 @@ FEEDS = [
     "https://feeds.bbci.co.uk/news/business/rss.xml",
     "https://feeds.content.dowjones.io/public/rss/mw_topstories",
     "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069",
-    "https://www.reuters.com/",
 ]
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
@@ -49,6 +49,13 @@ def article_id(entry) -> str:
     return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
 
+def clean_summary(entry) -> str:
+    raw = entry.get("summary", "") or ""
+    text = re.sub(r"<[^>]+>", "", raw)          # remove tags HTML
+    text = re.sub(r"\s+", " ", text).strip()     # normaliza espaços
+    return text[:400]                            # teto de tamanho
+
+
 def fetch_articles() -> list[dict]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=MAX_AGE_HOURS)
     articles = []
@@ -67,6 +74,7 @@ def fetch_articles() -> list[dict]:
                 articles.append({
                     "id": article_id(e),
                     "title": e.get("title", "").strip(),
+                    "summary": clean_summary(e),
                     "link": e.get("link", ""),
                     "source": source,
                 })
@@ -104,7 +112,8 @@ vezes ao dia. Dominam o vocabulário de mercado — Selic, DI, basis, carry, dur
 que aconteceu que pode virar pergunta de cliente ou exigir reposicionamento de
 carteira.
 
-Abaixo, uma lista de headlines recentes em JSON.
+Abaixo, uma lista de notícias recentes em JSON. Cada item tem "title" (manchete
+original) e "summary" (trecho da matéria). Use o summary como fonte dos detalhes.
 
 # OBJECTIVE
 Selecionar as notícias com potencial real de mover mercados que o advisor
@@ -124,8 +133,11 @@ qualquer coisa sem consequência clara para alocação.
 
 # STYLE
 Telegráfico e denso. A manchete resume o fato central em poucas palavras. Cada
-bullet acrescenta um dado concreto: número, declaração, o que foi decidido. Sem
-introdução, sem "segundo a matéria", sem adjetivo desnecessário.
+bullet extrai um dado concreto do summary fornecido: número, declaração, valor, o
+que foi decidido. Se o summary não trouxer detalhe suficiente para 2 bullets
+factuais, escreva menos bullets — nunca preencha com paráfrase da manchete nem com
+contexto que você presume. Sem introdução, sem "segundo a matéria", sem adjetivo
+desnecessário.
 
 # TONE
 Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
@@ -136,22 +148,29 @@ Assessores de investimento experientes. Trate-os como pares técnicos.
 
 # RESPONSE
 Regras invioláveis:
-- No máximo {max_bullets} notícias. Se nada for relevante, retorne lista vazia.
+- No máximo {max_bullets} notícias. É melhor 2 notícias fortes que 5 fracas. Se só
+  houver 1 relevante, envie 1. Se nenhuma for relevante, retorne lista vazia.
+- Quando houver mais candidatas que o limite, corte primeiro as de menor impacto
+  direto em preço de ativo brasileiro.
 - "headline": manchete curta, no máximo 10 palavras, em PT-BR.
-- "bullets": lista de 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR.
+- "bullets": 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR, extraídos do
+  summary fornecido.
 - Leitura ou reação de mercado (mercado já precificava, curva abriu, ativo caiu)
-  SOMENTE se a headline/fonte o afirmar. Você NÃO infere direção de preço nem
-  reação por conta própria. Bullet que não vem da fonte reporta apenas o fato.
+  SOMENTE se o title ou summary a afirmar. Você NUNCA infere direção de preço nem
+  reação por conta própria. Na dúvida, reporte só o fato.
 - Não dê recomendação de investimento nem opinião sua.
 - Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
 {{"items": [{{"id": "...", "headline": "...", "bullets": ["...", "..."]}}]}}
 
-Headlines:
+Notícias:
 {headlines}"""
 
 
 def filter_with_claude(articles: list[dict]) -> list[dict]:
-    headlines = [{"id": a["id"], "title": a["title"], "source": a["source"]} for a in articles]
+    headlines = [
+        {"id": a["id"], "title": a["title"], "summary": a["summary"], "source": a["source"]}
+        for a in articles
+    ]
     resp = requests.post(
         "https://api.anthropic.com/v1/messages",
         headers={
@@ -208,6 +227,7 @@ def build_message(items: list[dict]) -> str:
         lines.append(f"• Fonte: _{it['source']}_.")
         lines.append("")
     return "\n".join(lines).strip()
+
 
 def send_whatsapp(text: str):
     resp = requests.post(
