@@ -2,7 +2,7 @@ name: Radar de Mercado
 
 on:
   schedule:
-    - cron: "0 10-22/2 * * 1-5"   # a cada hora, 07h-19h BRT, dias úteis (UTC-3)
+    - cron: "0 10-22 * * 1-5"   # a cada hora, 07h-19h BRT, dias úteis (UTC-3)
   workflow_dispatch: {}          # permite rodar manualmente
 
 permissions:
