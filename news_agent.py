@@ -201,11 +201,13 @@ def build_message(items: list[dict]) -> str:
     for it in items:
         lines.append(f"*{it['headline']}*")
         for b in it["bullets"]:
+            b = b.rstrip()
+            if not b.endswith((".", "!", "?")):
+                b += "."
             lines.append(f"• {b}")
-        lines.append(f"• Fonte: _{it['source']}_")
+        lines.append(f"• Fonte: _{it['source']}_.")
         lines.append("")
     return "\n".join(lines).strip()
-
 
 def send_whatsapp(text: str):
     resp = requests.post(
