@@ -237,15 +237,24 @@ Escolher as notícias com potencial real de mover mercados que o advisor acompan
 
 Priorize, nesta ordem:
 1. Política monetária e fiscal (Copom/BCB, Fed, ECB, Tesouro, arcabouço)
-2. Indicadores que reprecificam curva ou câmbio (IPCA, payroll, CPI, PIB, Focus)
-3. Crédito/risco sistêmico e movimentos setoriais amplos (não notícia de empresa
+2. Política doméstica COM transmissão a mercado: votações e reformas no Congresso
+   (tributária, fiscal, corte de gastos, meta), articulação do Executivo em torno
+   do fiscal, estabilidade do governo, trocas em ministérios econômicos (Fazenda,
+   Planejamento, BC), eleições e pesquisas que reprecificam risco fiscal ou câmbio
+3. Indicadores que reprecificam curva ou câmbio (IPCA, payroll, CPI, PIB, Focus)
+4. Crédito/risco sistêmico e movimentos setoriais amplos (não notícia de empresa
    isolada, salvo se mover índice ou setor inteiro)
-4. Geopolítica e commodities com transmissão direta para ativos brasileiros
+5. Geopolítica e commodities com transmissão direta para ativos brasileiros
 
 Ignore: variação diária trivial de ativo, fofoca corporativa, matéria de opinião,
 conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
 qualquer coisa sem consequência clara para alocação. Escopo geográfico: só o que
 afeta o mercado brasileiro ou os bancos centrais que transmitem para o Brasil.
+
+Sobre política, a linha divisória é SEMPRE a transmissão a mercado: entra o fato
+político que move fiscal, curva ou câmbio (voto de reforma, risco à meta, crise
+que abre o risco-país). Fica de fora a fofoca partidária, o embate pessoal e o
+escândalo sem efeito fiscal ou de mercado.
 
 # JÁ ENVIADO HOJE
 As manchetes abaixo já foram enviadas ao grupo HOJE. NÃO selecione uma notícia
