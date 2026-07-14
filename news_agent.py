@@ -34,7 +34,7 @@ FEEDS = [
 ]
 
 MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
-MAX_ITEMS_TO_CLAUDE = 40   # teto de headlines por ciclo
+MAX_ITEMS_TO_CLAUDE = 60   # teto de headlines por ciclo
 MAX_NEWS = 5               # teto de NOTÍCIAS na mensagem final
 MAX_BODY_CHARS = 6000      # teto do texto extraído por artigo (controla custo/tokens)
 SENT_IDS_FILE = "sent_ids.json"
