@@ -205,6 +205,21 @@ def call_claude(prompt: str, max_tokens: int) -> str:
     return text.replace("```json", "").replace("```", "").strip()
 
 
+def parse_claude_json(text: str):
+    """Extrai o primeiro objeto/array JSON da resposta, ignorando prosa em volta.
+    Haiku às vezes 'explica' fora do JSON — raw_decode lê só o primeiro valor
+    válido e descarta o 'Extra data' que vem depois."""
+    decoder = json.JSONDecoder()
+    for i, ch in enumerate(text):
+        if ch in "{[":
+            try:
+                obj, _ = decoder.raw_decode(text[i:])
+                return obj
+            except json.JSONDecodeError:
+                continue
+    raise json.JSONDecodeError("nenhum JSON encontrado na resposta", text, 0)
+
+
 # --- Passada 1: seleção (título + summary) -----------------------
 
 SELECT_PROMPT = """# CONTEXT
@@ -270,7 +285,7 @@ def select_with_claude(articles: list[dict], sent_today: list[dict]) -> list[str
         ),
         max_tokens=500,
     )
-    ids = json.loads(text).get("ids", [])
+    ids = parse_claude_json(text).get("ids", [])
     valid = {a["id"] for a in articles}
     # preserva a ordem de relevância, remove duplicatas e ids inválidos, aplica teto
     seen, out = set(), []
@@ -345,7 +360,7 @@ def write_item(article: dict) -> dict | None:
         max_tokens=600,
     )
     try:
-        data = json.loads(text)
+        data = parse_claude_json(text)
     except json.JSONDecodeError:
         print(f"[warn] JSON inválido na redação de {article['id']}")
         return None
