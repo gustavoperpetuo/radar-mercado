@@ -19,7 +19,11 @@ from datetime import datetime, timedelta, timezone
 # ---------------------------------------------------------------
 
 FEEDS = [
-    # Brasil — valide/ajuste as URLs, feeds mudam de tempos em tempos
+    # Brasil — valide/ajuste as URLs, feeds mudam de tempos em tempos.
+    # Os mais fortes vêm primeiro: dentro do teto MAX_ITEMS_TO_CLAUDE, ordem = prioridade.
+    "https://pox.globo.com/rss/valor",              # Valor Econômico (macro/mercado)
+    "https://pox.globo.com/rss/valor/brasil",       # Valor Brasil (política/fiscal)
+    "https://braziljournal.com/feed/",              # Brazil Journal (mercado/corporativo)
     "https://www.infomoney.com.br/feed/",
     "https://g1.globo.com/rss/g1/economia/",
     "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
