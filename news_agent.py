@@ -244,6 +244,9 @@ reversão). Na dúvida entre repetição e fato novo, corte.
 # RESPONSE
 - No máximo {max_news} notícias. É melhor 2 fortes que 5 fracas. Se só houver 1
   relevante, selecione 1. Se nenhuma for relevante, retorne lista vazia.
+- Se duas ou mais notícias cobrem o MESMO fato (ex.: a mesma alta do petróleo
+  relatada por fontes diferentes), selecione APENAS UMA — a de fonte mais forte ou
+  mais detalhada. Nunca encha o limite com variações do mesmo evento.
 - Quando houver mais candidatas que o limite, corte primeiro as de menor impacto
   direto em preço de ativo brasileiro.
 - Ordene do MAIS para o MENOS relevante.
@@ -286,6 +289,14 @@ pares técnicos — dominam Selic, DI, carry, duration. Nada de explicação did
 
 Recebe UMA notícia já selecionada como relevante: o título e o TEXTO da matéria.
 Use o texto como fonte dos detalhes.
+
+# IDIOMA (crítico)
+O texto da matéria pode vir em INGLÊS (fontes como MarketWatch, BBC, CNBC). Escreva
+SEMPRE em português brasileiro fluente e idiomático — como um head de mesa brasileiro
+escreveria, não como uma tradução. NUNCA traduza ao pé da letra nem preserve a ordem
+de palavras ou as construções do inglês. Traduza o jargão para o termo usual do
+mercado brasileiro (ex.: "front-month" -> "primeiro vencimento"; "two-day gain" ->
+"alta em dois dias"). Se uma frase soaria estranha para um brasileiro, reescreva.
 
 # OBJECTIVE
 Escrever uma MANCHETE curta e de 2 a 3 BULLETS de detalhe, extraídos do texto.
