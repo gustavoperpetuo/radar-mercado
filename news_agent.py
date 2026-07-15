@@ -330,19 +330,25 @@ mercado brasileiro (ex.: "front-month" -> "primeiro vencimento"; "two-day gain" 
 Escrever uma MANCHETE curta e de 2 a 3 BULLETS de detalhe, extraídos do texto.
 
 # STYLE
-Conciso e direto, em frases correntes — não fragmentos soltos emendados. MAS os
-dados devem ser compactos e escaneáveis, não escritos por extenso: use parênteses
-e abreviações usuais (vs., m/m, a/a, p.p., bi, mi) para comparações e séries.
-Prefira "avançou para 15,6 pontos em julho (vs. 5,7 em junho), acima da estimativa
-de 8,4" em vez de "avançou para 15,6 pontos em julho versus 5,7 em junho, superando
-a estimativa de 8,4 pontos".
-A manchete resume o fato central em poucas palavras. Cada bullet é UMA frase
-natural com um dado concreto: número, declaração, valor, o que foi decidido. Um
-bullet = uma ideia: dois fatos distintos viram dois bullets, nunca emendados por
-ponto e vírgula numa frase só. Se o texto não trouxer detalhe suficiente para 2
-bullets factuais, escreva menos — nunca preencha com paráfrase da manchete nem com
-contexto presumido. Sem introdução, sem "segundo a matéria", sem adjetivo
-desnecessário.
+Escreva para leitura rápida no celular. Frases naturais e correntes, uma afirmação
+por bullet. A densidade vem da SELEÇÃO, não do acúmulo: traga o dado que importa e
+corte o resto — nunca despeje todos os números da matéria num bullet só.
+
+Dados compactos, sem exagero:
+- Comparação de preferência inline: "desacelerou para 3,5%, ante 4,2% em maio".
+- Parêntese só para UMA referência pontual: "(vs. 5,7 em junho)". Nunca dois
+  parênteses na mesma frase, nem um em cada número.
+- Abreviações usuais em dose certa: m/m, a/a, p.p., bi, mi.
+
+Pontuação e estrutura:
+- Nada de ponto e vírgula. Dois fatos = dois bullets, ou frases separadas por ponto
+  final (a próxima começa com maiúscula).
+- Sem introdução, sem "segundo a matéria", sem paráfrase da manchete, sem adjetivo
+  desnecessário.
+- Se o texto não dá 2 bullets factuais, escreva menos.
+
+EVITE (cram): "Dólar recua 0,33% a R$ 5,06 (semana -0,60%, mês -1,65%); Brent sobe
+0,39%." -> vira dois bullets, um por ativo, cada um com só o número central.
 
 # TONE
 Objetivo, profissional, seco. Como um head de mesa manda no grupo interno. Nunca
