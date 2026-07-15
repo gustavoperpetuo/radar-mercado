@@ -346,6 +346,7 @@ Pontuação e estrutura:
 - Sem introdução, sem "segundo a matéria", sem paráfrase da manchete, sem adjetivo
   desnecessário.
 - Se o texto não dá 2 bullets factuais, escreva menos.
+- Se utilizar ";", a próxima palavra deve começar com letra maiúscula
 
 EVITE (cram): "Dólar recua 0,33% a R$ 5,06 (semana -0,60%, mês -1,65%); Brent sobe
 0,39%." -> vira dois bullets, um por ativo, cada um com só o número central.
