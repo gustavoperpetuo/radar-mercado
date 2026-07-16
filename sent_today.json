@@ -1,117 +1,21 @@
 {
-  "date": "2026-07-15",
+  "date": "2026-07-16",
   "headlines": [
     {
-      "time": "08h21",
-      "headline": "Treasuries recuperam após deflação americana; petróleo acima de US$ 85"
+      "time": "08h41",
+      "headline": "Trump impõe tarifa de 25% a produtos brasileiros a partir de 22 de julho"
     },
     {
-      "time": "08h21",
-      "headline": "Serviços em maio, Warsh no Senado e Livro Bege em foco"
+      "time": "08h41",
+      "headline": "EUA impõem tarifa de 25% sobre produtos brasileiros a partir de quarta"
     },
     {
-      "time": "08h21",
-      "headline": "Mercado tolera descontrole fiscal até outubro; cobra plano pós-eleição"
+      "time": "08h41",
+      "headline": "IPC-S desacelera para 0,20% na segunda quadrissemana de julho"
     },
     {
-      "time": "10h01",
-      "headline": "Juros futuros estáveis em meio a dados fracos de serviços e inflação"
-    },
-    {
-      "time": "10h01",
-      "headline": "Empire State industrial sobe acima de expectativas em julho"
-    },
-    {
-      "time": "10h01",
-      "headline": "Serviços caem 0,4% em maio ante abril, acima do esperado"
-    },
-    {
-      "time": "10h09",
-      "headline": "Dólar cai com tarifas e tensões no Oriente Médio em foco"
-    },
-    {
-      "time": "10h09",
-      "headline": "PPI dos EUA cai 0,3% em junho, surpreendendo para baixo"
-    },
-    {
-      "time": "10h09",
-      "headline": "PIB chinês cai para 4,3% no Q2, abaixo da meta"
-    },
-    {
-      "time": "10h21",
-      "headline": "Williams vê inflação em 2% em 2028 com política atual do Fed"
-    },
-    {
-      "time": "10h52",
-      "headline": "Serviços às famílias atingem patamar mais alto desde dezembro de 2014"
-    },
-    {
-      "time": "10h52",
-      "headline": "IPCA+ longo sobe com repercussão de pesquisa eleitoral"
-    },
-    {
-      "time": "12h18",
-      "headline": "Governo conclui MP de alívio a dívidas rurais nesta quarta"
-    },
-    {
-      "time": "12h18",
-      "headline": "Precatórios em R$ 330 bi impulsionam mercado de cessão de crédito"
-    },
-    {
-      "time": "12h18",
-      "headline": "EUA avançam em novas tarifas ao Brasil com lista de exceções ampliada"
-    },
-    {
-      "time": "12h18",
-      "headline": "Tarifas dos EUA aceleram diversificação brasileira, mas concentração na China preocupa"
-    },
-    {
-      "time": "16h13",
-      "headline": "Fazenda eleva projeção de IPCA 2026 para 5,1%, acima do teto"
-    },
-    {
-      "time": "16h13",
-      "headline": "Governo tenta frear promulgação de PEC dos agentes de saúde"
-    },
-    {
-      "time": "16h13",
-      "headline": "Fazenda vê queda de commodities insuficiente para baixar inflação"
-    },
-    {
-      "time": "16h13",
-      "headline": "Warsh critica métricas de inflação do Fed em sabatina no Senado"
-    },
-    {
-      "time": "16h13",
-      "headline": "Governo Lula aposta em exceções a novo tarifaço dos EUA"
-    },
-    {
-      "time": "18h02",
-      "headline": "Ibovespa cai 0,36% com pesquisa eleitoral no radar"
-    },
-    {
-      "time": "18h02",
-      "headline": "Governo eleva projeção de inflação para 5,1% e projeta estouro de meta"
-    },
-    {
-      "time": "18h02",
-      "headline": "Governo e Câmara fecham acordo para renegociar dívidas rurais"
-    },
-    {
-      "time": "18h02",
-      "headline": "Durigan critica tarifas dos EUA como 'desproporcional' e promete proteção"
-    },
-    {
-      "time": "18h02",
-      "headline": "Suspensão de diesel russo pressiona importações brasileiras"
-    },
-    {
-      "time": "19h59",
-      "headline": "Juros futuros estáveis com PPI fraco nos EUA e pesquisa eleitoral"
-    },
-    {
-      "time": "19h59",
-      "headline": "Fazenda prevê impacto limitado de novas tarifas americanas"
+      "time": "08h41",
+      "headline": "China cresce 4,3% no trimestre; exportações em alta sustentam economia"
     }
   ]
 }
