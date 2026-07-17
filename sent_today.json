@@ -1,93 +1,17 @@
 {
-  "date": "2026-07-16",
+  "date": "2026-07-17",
   "headlines": [
     {
-      "time": "08h41",
-      "headline": "Trump impõe tarifa de 25% a produtos brasileiros a partir de 22 de julho"
+      "time": "08h23",
+      "headline": "Inflação anual da zona do euro cai para 2,8% em junho"
     },
     {
-      "time": "08h41",
-      "headline": "EUA impõem tarifa de 25% sobre produtos brasileiros a partir de quarta"
+      "time": "08h23",
+      "headline": "Brasil enfrenta tarifa de 25% em um quinto das exportações aos EUA"
     },
     {
-      "time": "08h41",
-      "headline": "IPC-S desacelera para 0,20% na segunda quadrissemana de julho"
-    },
-    {
-      "time": "08h41",
-      "headline": "China cresce 4,3% no trimestre; exportações em alta sustentam economia"
-    },
-    {
-      "time": "10h55",
-      "headline": "Juros futuros sobem pressionados por Treasuries; varejo brasileiro decepcionou"
-    },
-    {
-      "time": "10h55",
-      "headline": "Pedidos de desemprego nos EUA caem a 208 mil na semana"
-    },
-    {
-      "time": "10h55",
-      "headline": "Varejo americano cresce 0,2% em junho ante maio"
-    },
-    {
-      "time": "12h40",
-      "headline": "Houthis ameaçam infraestrutura petrolífera saudita em caso de escalada"
-    },
-    {
-      "time": "12h40",
-      "headline": "Irã orienta houthis a fechar Mar Vermelho se EUA atacarem"
-    },
-    {
-      "time": "12h40",
-      "headline": "Escalada no Mar Negro dispara preço do trigo global"
-    },
-    {
-      "time": "14h18",
-      "headline": "Ormuz reacende prêmio geopolítico; diesel dispara e aferta global aperta"
-    },
-    {
-      "time": "14h18",
-      "headline": "JPMorgan: tarifa de 25% tem impacto econômico limitado; risco é político"
-    },
-    {
-      "time": "14h18",
-      "headline": "Ibram pede isenção de Imposto Seletivo para mineração"
-    },
-    {
-      "time": "16h14",
-      "headline": "Logan defende juros mais altos para equilibrar riscos inflacionários"
-    },
-    {
-      "time": "16h14",
-      "headline": "Schmid do Fed mantém foco em inflação para política monetária"
-    },
-    {
-      "time": "16h14",
-      "headline": "Varejo oscilante reflete acomodação da atividade, não contração"
-    },
-    {
-      "time": "18h01",
-      "headline": "Governo amplia Brasil Soberano para setores atingidos por tarifa dos EUA"
-    },
-    {
-      "time": "18h01",
-      "headline": "Ibovespa cai 1,24% com aversão a risco e tarifas americanas"
-    },
-    {
-      "time": "18h01",
-      "headline": "Nasdaq cai 1,47% com venda em chips; TSMC eleva capex para 2026"
-    },
-    {
-      "time": "19h58",
-      "headline": "Decisão sobre tarifa adicional de 12,5% sai na próxima semana"
-    },
-    {
-      "time": "19h58",
-      "headline": "Juros futuros fecham em alta com pressão de Tesouro e exterior"
-    },
-    {
-      "time": "19h58",
-      "headline": "Importações disparam 85% após fim da taxa nas blusinhas"
+      "time": "08h23",
+      "headline": "IBC-Br de maio e sentimento do consumidor dos EUA em foco"
     }
   ]
 }
