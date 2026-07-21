@@ -1,61 +1,21 @@
 {
-  "date": "2026-07-20",
+  "date": "2026-07-21",
   "headlines": [
     {
-      "time": "09h18",
-      "headline": "Focus: Mercado mantém projeções de inflação e PIB 2026 estáveis"
+      "time": "08h47",
+      "headline": "Trump anuncia nova rodada de tarifas contra 60 países esta semana"
     },
     {
-      "time": "09h18",
-      "headline": "Congresso aprova despesas e deixa pautas relevantes travadas"
+      "time": "08h47",
+      "headline": "Irã ataca instalações americanas no Golfo após bombardeios dos EUA"
     },
     {
-      "time": "09h18",
-      "headline": "Mediadores propõem trégua de 10 dias entre Irã e EUA"
+      "time": "08h47",
+      "headline": "IGP-M cai 1,11% na segunda prévia de julho"
     },
     {
-      "time": "12h12",
-      "headline": "Expectativas de inflação em 2028 disparam e acendem alerta"
-    },
-    {
-      "time": "12h12",
-      "headline": "Houthis anunciam bloqueio do Mar Vermelho à Arábia Saudita"
-    },
-    {
-      "time": "12h12",
-      "headline": "Gasolina nos EUA volta acima de US$ 4/galão com escalada no Irã"
-    },
-    {
-      "time": "15h05",
-      "headline": "Real lidera carry trade entre emergentes com volatilidade em mínima"
-    },
-    {
-      "time": "15h05",
-      "headline": "Gabrielli defende aumento do mínimo e controle de capital com mercado"
-    },
-    {
-      "time": "15h05",
-      "headline": "Ouro fecha estável entre tensões geopolíticas e inflação"
-    },
-    {
-      "time": "17h22",
-      "headline": "Iêmen pró-saudita anuncia retomada de exportações de petróleo"
-    },
-    {
-      "time": "17h22",
-      "headline": "DI janeiro/2028 fecha em alta em sessão de volatilidade geopolítica"
-    },
-    {
-      "time": "17h22",
-      "headline": "PIB cresce 0,7% em maio, mas desaceleração em 12 meses preocupa"
-    },
-    {
-      "time": "19h01",
-      "headline": "Curva de juros ganha inclinação com pressão do exterior"
-    },
-    {
-      "time": "19h01",
-      "headline": "EUA impõem tarifa de 50% sobre produtos canadenses a partir de agosto"
+      "time": "08h47",
+      "headline": "Governo abre crédito de R$ 547 mi para ressarcir aposentados"
     }
   ]
 }
