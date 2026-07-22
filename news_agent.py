@@ -7,6 +7,7 @@ Fluxo: RSS -> dedupe (id + intra-day) -> Claude seleciona -> busca corpo real
 import json
 import os
 import re
+import time
 import hashlib
 import requests
 import feedparser
@@ -51,7 +52,12 @@ ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
 EVOLUTION_BASE_URL = os.environ["EVOLUTION_BASE_URL"].rstrip("/")   # ex: https://minha-evolution.up.railway.app
 EVOLUTION_API_KEY = os.environ["EVOLUTION_API_KEY"]
 EVOLUTION_INSTANCE = os.environ["EVOLUTION_INSTANCE"]               # nome da instância criada na Evolution
-WHATSAPP_GROUP_JID = os.environ["WHATSAPP_GROUP_JID"]               # ex: 120363123456789012@g.us
+# Um ou mais grupos, separados por vírgula no secret WHATSAPP_GROUP_JID.
+# Ex: "120363111@g.us,120363222@g.us". Com um JID só, funciona igual a antes.
+WHATSAPP_GROUP_JIDS = [
+    j.strip() for j in os.environ["WHATSAPP_GROUP_JID"].split(",") if j.strip()
+]
+BROADCAST_DELAY_SECONDS = 5   # buffer entre envios a grupos diferentes
 
 
 # ---------------------------------------------------------------
@@ -417,11 +423,11 @@ def build_message(items: list[dict]) -> str:
     return "\n".join(lines).strip()
 
 
-def send_whatsapp(text: str):
+def send_whatsapp(text: str, jid: str):
     resp = requests.post(
         f"{EVOLUTION_BASE_URL}/message/sendText/{EVOLUTION_INSTANCE}",
         headers={"apikey": EVOLUTION_API_KEY, "content-type": "application/json"},
-        json={"number": WHATSAPP_GROUP_JID, "text": text},
+        json={"number": jid, "text": text},
         timeout=60,
     )
     if resp.status_code == 404:
@@ -436,7 +442,23 @@ def send_whatsapp(text: str):
             "e certifique-se de que EVOLUTION_BASE_URL não tem barra no final."
         )
     resp.raise_for_status()
-    print("[ok] mensagem enviada")
+    print(f"[ok] mensagem enviada -> {jid}")
+
+
+def broadcast(text: str) -> int:
+    """Envia o mesmo digest para todos os grupos configurados. Falha em um grupo
+    (JID errado, bot não é membro, timeout) não impede os outros. Retorna quantos
+    grupos receberam com sucesso."""
+    entregues = 0
+    for i, jid in enumerate(WHATSAPP_GROUP_JIDS):
+        if i > 0:
+            time.sleep(BROADCAST_DELAY_SECONDS)   # buffer entre grupos, evita rajada
+        try:
+            send_whatsapp(text, jid)
+            entregues += 1
+        except Exception as ex:
+            print(f"[warn] falha ao enviar para {jid}: {ex}")
+    return entregues
 
 
 # ---------------------------------------------------------------
@@ -472,11 +494,15 @@ def main():
     print(f"[info] {len(items)} redigidas")
 
     if items:
-        send_whatsapp(build_message(items))
-        # registra na memória intra-day só o que foi realmente enviado
-        hora = now_brt().strftime("%Hh%M")
-        sent_today.extend({"time": hora, "headline": it["headline"]} for it in items)
-        save_sent_today(sent_today)
+        entregues = broadcast(build_message(items))
+        if entregues:
+            # registra na memória intra-day só o que foi realmente enviado
+            hora = now_brt().strftime("%Hh%M")
+            sent_today.extend({"time": hora, "headline": it["headline"]} for it in items)
+            save_sent_today(sent_today)
+        else:
+            # nenhum grupo recebeu -> falha alto e não avança estado, pra retentar no próximo ciclo
+            raise RuntimeError("Nenhum grupo recebeu a mensagem; abortando sem gravar estado.")
 
     # marca TODAS as vistas (mesmo as descartadas) pra não reavaliar
     sent.update(a["id"] for a in articles)
