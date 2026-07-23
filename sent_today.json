@@ -1,29 +1,21 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "headlines": [
     {
-      "time": "11h42",
-      "headline": "EUA impõe tarifa de 25% sobre produtos brasileiros a partir de hoje"
+      "time": "08h43",
+      "headline": "Juros globais sobem com petróleo perto de US$ 100 e temores inflacionários"
     },
     {
-      "time": "11h42",
-      "headline": "Governo adia para janeiro de 2027 CNPJ técnico e nota fiscal da reforma"
+      "time": "08h43",
+      "headline": "IPC-S cresce 0,07% na terceira quadrissemana de julho"
     },
     {
-      "time": "11h42",
-      "headline": "Brent supera US$ 95 pela primeira vez desde junho com escalada EUA-Irã"
+      "time": "08h43",
+      "headline": "BCE decide sobre juros com coletiva de Lagarde; Tesouro faz leilão de prefixados"
     },
     {
-      "time": "18h54",
-      "headline": "Lula mantém diálogo com EUA e anuncia R$ 18,5 bi em crédito"
-    },
-    {
-      "time": "18h54",
-      "headline": "DI sobe com petróleo em alta e tensão EUA-Irã"
-    },
-    {
-      "time": "18h54",
-      "headline": "TCU aponta risco fiscal de R$ 4,6 bi anuais em universalização dos Correios"
+      "time": "08h43",
+      "headline": "NTN-B dispara e juro real sobe acima de 8% até 2037"
     }
   ]
 }
