@@ -1,33 +1,21 @@
 {
-  "date": "2026-07-23",
+  "date": "2026-07-24",
   "headlines": [
     {
-      "time": "08h43",
-      "headline": "Juros globais sobem com petróleo perto de US$ 100 e temores inflacionários"
+      "time": "08h28",
+      "headline": "Eleição domina radar de Faria Lima; 15 de agosto em foco"
     },
     {
-      "time": "08h43",
-      "headline": "IPC-S cresce 0,07% na terceira quadrissemana de julho"
+      "time": "08h28",
+      "headline": "PMI preliminar dos EUA e participação de Galípolo pautam sexta"
     },
     {
-      "time": "08h43",
-      "headline": "BCE decide sobre juros com coletiva de Lagarde; Tesouro faz leilão de prefixados"
+      "time": "08h28",
+      "headline": "EUA aplica tarifa de 12,5% a produtos brasileiros por trabalho forçado"
     },
     {
-      "time": "08h43",
-      "headline": "NTN-B dispara e juro real sobe acima de 8% até 2037"
-    },
-    {
-      "time": "18h52",
-      "headline": "Trump impõe tarifa de 12,5% ao Brasil por trabalho forçado"
-    },
-    {
-      "time": "18h52",
-      "headline": "Yellen vê Fed pronto para subir juros com inflação persistente até 2027"
-    },
-    {
-      "time": "18h52",
-      "headline": "IFI aponta economia com hiato positivo desde Q2 2024"
+      "time": "08h28",
+      "headline": "Brent recua para US$ 97,66, mas acumula +11% na semana"
     }
   ]
 }
