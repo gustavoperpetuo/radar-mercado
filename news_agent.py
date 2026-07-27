@@ -47,7 +47,7 @@ _TRAFILATURA_CFG = use_config()
 _TRAFILATURA_CFG.set("DEFAULT", "DOWNLOAD_TIMEOUT", "20")
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
-ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
+ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
 
 EVOLUTION_BASE_URL = os.environ["EVOLUTION_BASE_URL"].rstrip("/")   # ex: https://minha-evolution.up.railway.app
 EVOLUTION_API_KEY = os.environ["EVOLUTION_API_KEY"]
@@ -203,11 +203,13 @@ def call_claude(prompt: str, max_tokens: int) -> str:
             "anthropic-version": "2023-06-01",
             "content-type": "application/json",
         },
-        json={
+            json={
             "model": ANTHROPIC_MODEL,
             "max_tokens": max_tokens,
+            "thinking": {"type": "disabled"},   # sem raciocínio: controla custo e não come o max_tokens
             "messages": [{"role": "user", "content": prompt}],
         },
+
         timeout=120,
     )
     resp.raise_for_status()
