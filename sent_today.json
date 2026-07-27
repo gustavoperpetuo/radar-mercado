@@ -1,41 +1,17 @@
 {
-  "date": "2026-07-24",
+  "date": "2026-07-27",
   "headlines": [
     {
-      "time": "08h28",
-      "headline": "Eleição domina radar de Faria Lima; 15 de agosto em foco"
+      "time": "09h14",
+      "headline": "Focus reduz IPCA 2026 para 5,12% e eleva 2027 para 4,22%"
     },
     {
-      "time": "08h28",
-      "headline": "PMI preliminar dos EUA e participação de Galípolo pautam sexta"
+      "time": "09h14",
+      "headline": "Confiança do consumidor cai pela terceira vez consecutiva em julho"
     },
     {
-      "time": "08h28",
-      "headline": "EUA aplica tarifa de 12,5% a produtos brasileiros por trabalho forçado"
-    },
-    {
-      "time": "08h28",
-      "headline": "Brent recua para US$ 97,66, mas acumula +11% na semana"
-    },
-    {
-      "time": "18h51",
-      "headline": "DI recua com alívio geopolítico e falas de Galípolo"
-    },
-    {
-      "time": "18h51",
-      "headline": "Planejamento revisa Selic média 2026 para cima, de 13,96% para 14,16%"
-    },
-    {
-      "time": "18h51",
-      "headline": "Planejamento revisa primário 2026 para superávit de R$ 10,8 bi"
-    },
-    {
-      "time": "18h51",
-      "headline": "Receita arrecada apenas R$ 2,2 bi de IR sobre dividendos no H1"
-    },
-    {
-      "time": "18h51",
-      "headline": "Tarifa efetiva dos EUA sobre Brasil sobe para até 18,9%"
+      "time": "09h14",
+      "headline": "Dólar cai com trégua no Oriente Médio e petróleo desaba"
     }
   ]
 }
