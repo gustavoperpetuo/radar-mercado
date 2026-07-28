@@ -1,49 +1,25 @@
 {
-  "date": "2026-07-27",
+  "date": "2026-07-28",
   "headlines": [
     {
-      "time": "09h14",
-      "headline": "Focus reduz IPCA 2026 para 5,12% e eleva 2027 para 4,22%"
+      "time": "08h48",
+      "headline": "Agenda: IPCA-15 e setor externo em foco"
     },
     {
-      "time": "09h14",
-      "headline": "Confiança do consumidor cai pela terceira vez consecutiva em julho"
+      "time": "08h48",
+      "headline": "Dólar sobe no exterior com aposta em alta de juros do Fed"
     },
     {
-      "time": "09h14",
-      "headline": "Dólar cai com trégua no Oriente Médio e petróleo desaba"
+      "time": "08h48",
+      "headline": "Déficit em conta corrente encolhe em junho"
     },
     {
-      "time": "09h46",
-      "headline": "Durigan defende divulgação de detalhes do ajuste fiscal ainda em 2024"
+      "time": "08h48",
+      "headline": "Lula e Flávio empatam tecnicamente em MG, diz Quaest"
     },
     {
-      "time": "09h46",
-      "headline": "NTN-B acima de 8% reflete incerteza fiscal e risco de dominância"
-    },
-    {
-      "time": "09h46",
-      "headline": "Encomendas de bens duráveis dos EUA crescem 0,3% em junho"
-    },
-    {
-      "time": "18h55",
-      "headline": "DI cede forte com trégua entre EUA e Irã"
-    },
-    {
-      "time": "18h55",
-      "headline": "Dólar sobe a R$ 5,11 sem suporte do petróleo"
-    },
-    {
-      "time": "18h55",
-      "headline": "Trump volta a pressionar Fed por corte de juros"
-    },
-    {
-      "time": "18h55",
-      "headline": "Ibovespa fecha aos 175 mil pontos apesar de Petrobras"
-    },
-    {
-      "time": "18h55",
-      "headline": "BCE sinaliza nova alta de juros em setembro"
+      "time": "08h48",
+      "headline": "FMI simula ganhos de ajuste fiscal mais forte"
     }
   ]
 }
