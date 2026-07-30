@@ -1,45 +1,25 @@
 {
-  "date": "2026-07-29",
+  "date": "2026-07-30",
   "headlines": [
     {
-      "time": "08h52",
-      "headline": "Petróleo dispara com Irã, mercado espera Fed"
+      "time": "08h44",
+      "headline": "Treasuries longos sob pressão puxam juros globais"
     },
     {
-      "time": "08h52",
-      "headline": "EUA e Arábia Saudita atacam milícias pró-Irã no Iraque"
+      "time": "08h44",
+      "headline": "Drone atinge porto egípcio e amplia risco à navegação em Suez"
     },
     {
-      "time": "08h52",
-      "headline": "Fed decide juros e Tesouro divulga dívida mensal"
+      "time": "08h44",
+      "headline": "Agenda: desemprego no Brasil e PIB dos EUA"
     },
     {
-      "time": "08h52",
-      "headline": "Genial/Quaest: Flávio 34% x Lula 30% em SP"
+      "time": "08h44",
+      "headline": "BoE mantém juros em 3,75%, decisão dividida"
     },
     {
-      "time": "08h52",
-      "headline": "Tarcísio lidera em SP com 41% ante 26% de Haddad"
-    },
-    {
-      "time": "18h43",
-      "headline": "Ibovespa cai 1,52% com Fed e tombo de bancos"
-    },
-    {
-      "time": "18h43",
-      "headline": "Dólar cai após Fed e ameaça de Trump ao Irã"
-    },
-    {
-      "time": "18h43",
-      "headline": "Fed mantém juros e Warsh derruba dólar e Treasuries"
-    },
-    {
-      "time": "18h43",
-      "headline": "Tesouro revisa PAF para ampliar fatia pós-fixada"
-    },
-    {
-      "time": "18h43",
-      "headline": "Trump e Netanyahu discutem opções sobre Irã"
+      "time": "08h44",
+      "headline": "Meta sob pressão: crédito e ações reagem a gastos com IA"
     }
   ]
 }
