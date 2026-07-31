@@ -1,45 +1,25 @@
 {
-  "date": "2026-07-30",
+  "date": "2026-07-31",
   "headlines": [
     {
-      "time": "08h44",
-      "headline": "Treasuries longos sob pressão puxam juros globais"
+      "time": "08h50",
+      "headline": "Petróleo tem maior alta mensal desde março"
     },
     {
-      "time": "08h44",
-      "headline": "Drone atinge porto egípcio e amplia risco à navegação em Suez"
+      "time": "08h50",
+      "headline": "Treasuries sobem com Fed e tensão no Oriente Médio"
     },
     {
-      "time": "08h44",
-      "headline": "Agenda: desemprego no Brasil e PIB dos EUA"
+      "time": "08h50",
+      "headline": "Tesouro reforça emissão de prefixados curtos"
     },
     {
-      "time": "08h44",
-      "headline": "BoE mantém juros em 3,75%, decisão dividida"
+      "time": "08h50",
+      "headline": "Inadimplência do consignado privado bate recorde"
     },
     {
-      "time": "08h44",
-      "headline": "Meta sob pressão: crédito e ações reagem a gastos com IA"
-    },
-    {
-      "time": "18h55",
-      "headline": "Governo central tem déficit primário de R$ 48,2 bi em junho"
-    },
-    {
-      "time": "18h55",
-      "headline": "Dólar cai a R$ 5,06 com iene e alívio no Fed"
-    },
-    {
-      "time": "18h55",
-      "headline": "DI cai com retomada do apetite por risco"
-    },
-    {
-      "time": "18h55",
-      "headline": "Balanços de bancos acendem alerta sobre crédito"
-    },
-    {
-      "time": "18h55",
-      "headline": "Ibovespa sobe 1,9% e bate 177 mil pontos"
+      "time": "08h50",
+      "headline": "Crédito bancário externo ao Brasil recua no 1º tri"
     }
   ]
 }
