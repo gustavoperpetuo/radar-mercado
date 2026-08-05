@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-04",
+  "date": "2026-08-05",
   "headlines": [
     {
-      "time": "08h52",
-      "headline": "Treasuries longos pressionam mercado e preocupam Trump"
+      "time": "08h49",
+      "headline": "Copom e tensão Irã-EUA pautam mercado nesta quarta"
     },
     {
-      "time": "08h52",
-      "headline": "Fiscal domina pressão sobre taxas de NTN-B"
+      "time": "08h49",
+      "headline": "Alívio geopolítico e eleitoral reduz prêmio nos juros"
     },
     {
-      "time": "08h52",
-      "headline": "PicPay projeta dólar a R$ 5,37 no fim de 2026"
+      "time": "08h49",
+      "headline": "Genial/Quaest: Lula 44% x Flávio 39% no 2º turno"
     },
     {
-      "time": "08h52",
-      "headline": "Silêncio de Warsh gera dúvidas sobre rumo do Fed"
+      "time": "08h49",
+      "headline": "Trump vê acordo próximo para reabertura de Ormuz"
     },
     {
-      "time": "08h52",
-      "headline": "Volatilidade dos juros dobra desde início da guerra no Irã"
-    },
-    {
-      "time": "19h00",
-      "headline": "Ibovespa fecha estável em meio a temor de novas sanções dos EUA"
-    },
-    {
-      "time": "19h00",
-      "headline": "EUA revogam visto da embaixadora brasileira em Washington"
-    },
-    {
-      "time": "19h00",
-      "headline": "DI fecha em alta com ruído político, véspera do Copom"
-    },
-    {
-      "time": "19h00",
-      "headline": "Petróleo cai 5% com expectativa de acordo EUA-Irã"
-    },
-    {
-      "time": "19h00",
-      "headline": "Petrobras trava gasoduto de US$ 1 bi por incerteza regulatória"
+      "time": "08h49",
+      "headline": "Dirigente do Fed defende juros mais altos"
     }
   ]
 }
