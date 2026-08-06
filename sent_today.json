@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-05",
+  "date": "2026-08-06",
   "headlines": [
     {
-      "time": "08h49",
-      "headline": "Copom e tensão Irã-EUA pautam mercado nesta quarta"
+      "time": "08h54",
+      "headline": "Copom corta Selic a 14% e evita sinalizar próximos passos"
     },
     {
-      "time": "08h49",
-      "headline": "Alívio geopolítico e eleitoral reduz prêmio nos juros"
+      "time": "08h54",
+      "headline": "Alívio dos ativos locais perde força com eleição"
     },
     {
-      "time": "08h49",
-      "headline": "Genial/Quaest: Lula 44% x Flávio 39% no 2º turno"
+      "time": "08h54",
+      "headline": "Lula e Alcolumbre retomam diálogo com mediação do STF"
     },
     {
-      "time": "08h49",
-      "headline": "Trump vê acordo próximo para reabertura de Ormuz"
+      "time": "08h54",
+      "headline": "Governo vê ação coordenada de EUA e Argentina"
     },
     {
-      "time": "08h49",
-      "headline": "Dirigente do Fed defende juros mais altos"
-    },
-    {
-      "time": "19h02",
-      "headline": "Copom corta Selic pela 4ª vez seguida, a 14%"
-    },
-    {
-      "time": "19h02",
-      "headline": "DI cai antes do Copom, mas vice de Flávio pesa"
-    },
-    {
-      "time": "19h02",
-      "headline": "Cook sinaliza disposição para subir juros nos EUA"
-    },
-    {
-      "time": "19h02",
-      "headline": "Ibovespa fecha em leve queda antes do Copom"
-    },
-    {
-      "time": "19h02",
-      "headline": "Dólar fecha estável apesar de exterior mais fraco"
+      "time": "08h54",
+      "headline": "Agenda: payroll semanal dos EUA e leilão de prefixados"
     }
   ]
 }
