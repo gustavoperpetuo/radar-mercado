@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-06",
+  "date": "2026-08-07",
   "headlines": [
     {
-      "time": "08h54",
-      "headline": "Copom corta Selic a 14% e evita sinalizar próximos passos"
+      "time": "07h39",
+      "headline": "Barclays vê excesso no pedido de US$ 35 bi do Tesouro"
     },
     {
-      "time": "08h54",
-      "headline": "Alívio dos ativos locais perde força com eleição"
+      "time": "07h39",
+      "headline": "Durigan culpa juros por alta da dívida, mas dados contradizem"
     },
     {
-      "time": "08h54",
-      "headline": "Lula e Alcolumbre retomam diálogo com mediação do STF"
+      "time": "07h39",
+      "headline": "Copom sem viés claro pressiona juros e favorece real"
     },
     {
-      "time": "08h54",
-      "headline": "Governo vê ação coordenada de EUA e Argentina"
+      "time": "07h39",
+      "headline": "Impasse em Ormuz encarece petróleo e pesa em bolsas"
     },
     {
-      "time": "08h54",
-      "headline": "Agenda: payroll semanal dos EUA e leilão de prefixados"
-    },
-    {
-      "time": "22h00",
-      "headline": "DI sobe com ajuste pós-Copom e Treasuries em alta"
-    },
-    {
-      "time": "22h00",
-      "headline": "Ibovespa cai 1,2% com juros nos EUA no radar"
-    },
-    {
-      "time": "22h00",
-      "headline": "Musalem diz que defendeu alta de juros no Fomc"
-    },
-    {
-      "time": "22h00",
-      "headline": "Real se descola do dólar forte e lidera entre pares"
-    },
-    {
-      "time": "22h00",
-      "headline": "Governo negocia benefícios ao etanol em projeto de combustíveis"
+      "time": "07h39",
+      "headline": "Endividamento das famílias bate novo recorde em julho"
     }
   ]
 }
