@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-07",
+  "date": "2026-08-10",
   "headlines": [
     {
-      "time": "07h39",
-      "headline": "Barclays vê excesso no pedido de US$ 35 bi do Tesouro"
+      "time": "09h40",
+      "headline": "Focus: leve ajuste no IPCA e PIB de 2026"
     },
     {
-      "time": "07h39",
-      "headline": "Durigan culpa juros por alta da dívida, mas dados contradizem"
+      "time": "09h40",
+      "headline": "Tarcísio tem 51% no 1º turno em SP, aponta Ideia"
     },
     {
-      "time": "07h39",
-      "headline": "Copom sem viés claro pressiona juros e favorece real"
+      "time": "09h40",
+      "headline": "Petróleo sobe com incerteza sobre Estreito de Ormuz"
     },
     {
-      "time": "07h39",
-      "headline": "Impasse em Ormuz encarece petróleo e pesa em bolsas"
+      "time": "09h40",
+      "headline": "Brasil aciona OMC em meio a tensão com EUA"
     },
     {
-      "time": "07h39",
-      "headline": "Endividamento das famílias bate novo recorde em julho"
-    },
-    {
-      "time": "18h26",
-      "headline": "Payroll fraco não muda cenário de juros no Fed"
-    },
-    {
-      "time": "18h26",
-      "headline": "Dólar cai após payroll fraco nos EUA"
-    },
-    {
-      "time": "18h26",
-      "headline": "Ibovespa cai 1,7% na contramão do payroll fraco"
-    },
-    {
-      "time": "18h26",
-      "headline": "Adnoc reporta ataques a embarcações no Estreito de Ormuz"
-    },
-    {
-      "time": "18h26",
-      "headline": "DF e Fazenda divergem sobre Capag A provisória para aval ao BRB"
+      "time": "09h40",
+      "headline": "Mercado espera IPCA e CPI em meio a impasse em Ormuz"
     }
   ]
 }
