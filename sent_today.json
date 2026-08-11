@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-10",
+  "date": "2026-08-11",
   "headlines": [
     {
-      "time": "09h40",
-      "headline": "Focus: leve ajuste no IPCA e PIB de 2026"
+      "time": "07h39",
+      "headline": "Ata do Copom e IPCA movimentam agenda"
     },
     {
-      "time": "09h40",
-      "headline": "Tarcísio tem 51% no 1º turno em SP, aponta Ideia"
+      "time": "07h39",
+      "headline": "Petróleo dispara e volta a pressionar juros globais"
     },
     {
-      "time": "09h40",
-      "headline": "Petróleo sobe com incerteza sobre Estreito de Ormuz"
+      "time": "07h39",
+      "headline": "Dívida pública ultrapassa crédito privado em % do PIB"
     },
     {
-      "time": "09h40",
-      "headline": "Brasil aciona OMC em meio a tensão com EUA"
+      "time": "07h39",
+      "headline": "Trump confirma conversa com Kevin Warsh"
     },
     {
-      "time": "09h40",
-      "headline": "Mercado espera IPCA e CPI em meio a impasse em Ormuz"
-    },
-    {
-      "time": "18h29",
-      "headline": "Juros futuros sobem com petróleo e Treasuries em alta"
-    },
-    {
-      "time": "18h29",
-      "headline": "Real lidera perdas com prêmio eleitoral no câmbio"
-    },
-    {
-      "time": "18h29",
-      "headline": "Petróleo fecha em alta com Ormuz ainda incerto"
-    },
-    {
-      "time": "18h29",
-      "headline": "Trump diz ter conversado com Warsh sobre Fed"
-    },
-    {
-      "time": "18h29",
-      "headline": "Ibovespa cai 0,19% com petróleo acima de US$ 80"
+      "time": "07h39",
+      "headline": "Focus corta projeção de PIB de 2027 para 1,52%"
     }
   ]
 }
