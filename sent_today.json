@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-11",
+  "date": "2026-08-12",
   "headlines": [
     {
-      "time": "07h39",
-      "headline": "Ata do Copom e IPCA movimentam agenda"
+      "time": "07h47",
+      "headline": "Ibovespa tem maior queda diária desde março"
     },
     {
-      "time": "07h39",
-      "headline": "Petróleo dispara e volta a pressionar juros globais"
+      "time": "07h47",
+      "headline": "Mercado eleva prêmio de risco para as eleições"
     },
     {
-      "time": "07h39",
-      "headline": "Dívida pública ultrapassa crédito privado em % do PIB"
+      "time": "07h47",
+      "headline": "Simples: mudança na Câmara pode custar R$ 49 bi à Previdência"
     },
     {
-      "time": "07h39",
-      "headline": "Trump confirma conversa com Kevin Warsh"
+      "time": "07h47",
+      "headline": "Impasse em Ormuz pressiona petróleo e NY"
     },
     {
-      "time": "07h39",
-      "headline": "Focus corta projeção de PIB de 2027 para 1,52%"
-    },
-    {
-      "time": "18h32",
-      "headline": "Ibovespa cai 2,50% após rebaixamento do J.P. Morgan"
-    },
-    {
-      "time": "18h32",
-      "headline": "Dólar sobe a R$ 5,16 com pesquisa eleitoral no radar"
-    },
-    {
-      "time": "18h32",
-      "headline": "Wells Fargo vê alerta máximo e projeta correção no S&P 500"
-    },
-    {
-      "time": "18h32",
-      "headline": "Ouro fecha acima de US$ 4,4 mil pelo segundo pregão"
-    },
-    {
-      "time": "18h32",
-      "headline": "Balanços já mostram desaceleração de empresas cíclicas"
+      "time": "07h47",
+      "headline": "IGP-M acelera na 1ª prévia de agosto"
     }
   ]
 }
