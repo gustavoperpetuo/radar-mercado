@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-13",
+  "date": "2026-08-14",
   "headlines": [
     {
-      "time": "07h49",
-      "headline": "Dólar se aproxima de R$ 5,18 com piora local"
+      "time": "07h45",
+      "headline": "Estrangeiro intensifica saída da bolsa antes da eleição"
     },
     {
-      "time": "07h49",
-      "headline": "Eleição passa a mexer com ações, dólar e juros"
+      "time": "07h45",
+      "headline": "Congresso amplia benefícios fiscais e fura arcabouço"
     },
     {
-      "time": "07h49",
-      "headline": "Société Générale dá 70% de chance de reeleição a Lula"
+      "time": "07h45",
+      "headline": "Leilão de T-bond de 30 anos sai à maior taxa desde 2001"
     },
     {
-      "time": "07h49",
-      "headline": "EUA ameaçam novas medidas contra o Brasil"
+      "time": "07h45",
+      "headline": "Brasil abre processo de reciprocidade contra os EUA"
     },
     {
-      "time": "07h49",
-      "headline": "PLP dos combustíveis traz gatilhos fiscais para 2027"
-    },
-    {
-      "time": "18h32",
-      "headline": "Ibovespa cai 8ª sessão seguida com fuga de estrangeiros"
-    },
-    {
-      "time": "18h32",
-      "headline": "BCA Research rebaixa ações brasileiras para venda"
-    },
-    {
-      "time": "18h32",
-      "headline": "Juros futuros sobem no vencimento longo da curva"
-    },
-    {
-      "time": "18h32",
-      "headline": "EUA pagam maior taxa em T-bond de 30 anos desde 2001"
-    },
-    {
-      "time": "18h32",
-      "headline": "Ashmore liga fuga estrangeira à concentração em Brasil"
+      "time": "07h45",
+      "headline": "Caiado prepara nova regra fiscal para gastos públicos"
     }
   ]
 }
