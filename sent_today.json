@@ -1,45 +1,21 @@
 {
-  "date": "2026-08-17",
+  "date": "2026-08-18",
   "headlines": [
     {
-      "time": "07h18",
-      "headline": "Casas Bahia pede recuperação judicial"
+      "time": "07h14",
+      "headline": "Confiança do investidor alemão sobe pelo 4º mês"
     },
     {
-      "time": "07h18",
-      "headline": "PEC da escala 6x1 reacende risco fiscal e inflacionário"
+      "time": "07h14",
+      "headline": "ZEW da zona do euro sobe a 31,4 em agosto"
     },
     {
-      "time": "07h18",
-      "headline": "Galapagos vê ativos brasileiros em 'mata-burro' fiscal"
+      "time": "07h14",
+      "headline": "Bolsas da Ásia caem com petróleo e inflação"
     },
     {
-      "time": "07h18",
-      "headline": "Projeções apontam superávit comercial recorde em 2026"
-    },
-    {
-      "time": "07h18",
-      "headline": "Crédito privado dá sinais de retomada em julho"
-    },
-    {
-      "time": "18h14",
-      "headline": "NY cai com petróleo acima de US$ 90 e juros longos em alta"
-    },
-    {
-      "time": "18h14",
-      "headline": "BTG explica alta das taxas longas no Brasil"
-    },
-    {
-      "time": "18h14",
-      "headline": "DI recua em correção após estresse da semana passada"
-    },
-    {
-      "time": "18h14",
-      "headline": "Dólar cai após 5 altas, Ibovespa fecha estável"
-    },
-    {
-      "time": "18h14",
-      "headline": "Balança comercial tem superávit de US$ 635 mi na semana"
+      "time": "07h14",
+      "headline": "Desemprego no Reino Unido estável em 4,9%"
     }
   ]
 }
