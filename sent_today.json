@@ -1,41 +1,25 @@
 {
-  "date": "2026-08-18",
+  "date": "2026-08-19",
   "headlines": [
     {
       "time": "07h14",
-      "headline": "Confiança do investidor alemão sobe pelo 4º mês"
+      "headline": "Juros longos globais sob pressão renovada"
     },
     {
       "time": "07h14",
-      "headline": "ZEW da zona do euro sobe a 31,4 em agosto"
+      "headline": "Juros longos dos EUA sobem e pressionam Brasil"
     },
     {
       "time": "07h14",
-      "headline": "Bolsas da Ásia caem com petróleo e inflação"
+      "headline": "Inflação da zona do euro sobe a 2,9% em julho"
     },
     {
       "time": "07h14",
-      "headline": "Desemprego no Reino Unido estável em 4,9%"
+      "headline": "Estrangeiros sacam recorde de R$ 12,6 bi da B3"
     },
     {
-      "time": "18h11",
-      "headline": "PEC do fim da escala 6x1 avança no Senado"
-    },
-    {
-      "time": "18h11",
-      "headline": "Dólar sobe com exterior fraco e PEC 6x1 no radar"
-    },
-    {
-      "time": "18h11",
-      "headline": "Curva de juros abre com pressão na ponta longa"
-    },
-    {
-      "time": "18h11",
-      "headline": "Kapitalo vê Selic caindo além de setembro"
-    },
-    {
-      "time": "18h11",
-      "headline": "Tesouro amplia oferta de NTN-Bs em leilão"
+      "time": "07h14",
+      "headline": "Bolsas da Ásia caem com tecnologia e petróleo"
     }
   ]
 }
