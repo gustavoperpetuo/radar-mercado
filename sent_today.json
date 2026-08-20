@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-19",
+  "date": "2026-08-20",
   "headlines": [
     {
-      "time": "07h14",
-      "headline": "Juros longos globais sob pressão renovada"
+      "time": "07h16",
+      "headline": "Tesouro dos EUA amplia recompra de Treasuries longos"
     },
     {
-      "time": "07h14",
-      "headline": "Juros longos dos EUA sobem e pressionam Brasil"
+      "time": "07h16",
+      "headline": "Governo projeta gastos com Previdência a R$ 1,22 tri em 2027"
     },
     {
-      "time": "07h14",
-      "headline": "Inflação da zona do euro sobe a 2,9% em julho"
+      "time": "07h16",
+      "headline": "TSE deve rejeitar candidatura de Marçal"
     },
     {
-      "time": "07h14",
-      "headline": "Estrangeiros sacam recorde de R$ 12,6 bi da B3"
+      "time": "07h16",
+      "headline": "Reciprocidade tarifária com EUA só deve fechar em dezembro"
     },
     {
-      "time": "07h14",
-      "headline": "Bolsas da Ásia caem com tecnologia e petróleo"
-    },
-    {
-      "time": "18h14",
-      "headline": "Tesouro dos EUA dobra recompras para conter juros longos"
-    },
-    {
-      "time": "18h14",
-      "headline": "Citi recomenda ouro após recompra de Treasuries pelos EUA"
-    },
-    {
-      "time": "18h14",
-      "headline": "Fed vê incerteza elevada e riscos de alta para inflação"
-    },
-    {
-      "time": "18h14",
-      "headline": "Petróleo sobe com tensão no Golfo e queda em estoques dos EUA"
-    },
-    {
-      "time": "18h14",
-      "headline": "Estrangeiro saca R$ 496 mi da B3 e mês fica negativo"
+      "time": "07h16",
+      "headline": "Durigan amplia diálogo fiscal com Arminio e Malan"
     }
   ]
 }
