@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-21",
+  "date": "2026-08-24",
   "headlines": [
     {
-      "time": "07h16",
-      "headline": "IFI vê déficit estrutural dobrar para 1,4% do PIB"
+      "time": "07h25",
+      "headline": "Dívida pública tem R$ 1,8 tri a vencer em 2027"
     },
     {
-      "time": "07h16",
-      "headline": "Juros longos dos Treasuries voltam a subir"
+      "time": "07h25",
+      "headline": "Tesouro dos EUA intervém em Treasuries e amplia incerteza"
     },
     {
-      "time": "07h16",
-      "headline": "Juros e dólar revertem alívio e sobem de novo"
+      "time": "07h25",
+      "headline": "Vinland vê ajuste fiscal pagando juro menor"
     },
     {
-      "time": "07h16",
-      "headline": "Déficit comercial da indústria bate recorde no 1º semestre"
+      "time": "07h25",
+      "headline": "Recuperação judicial da Casas Bahia vira munição eleitoral"
     },
     {
-      "time": "07h16",
-      "headline": "Governo terá até dezembro para plano sobre fundos"
-    },
-    {
-      "time": "18h11",
-      "headline": "DI cai forte com aposta em eleição mais acirrada"
-    },
-    {
-      "time": "18h11",
-      "headline": "Dólar cai e fecha abaixo de R$ 5,15"
-    },
-    {
-      "time": "18h11",
-      "headline": "Ibovespa volta aos 171 mil pontos com eleições no radar"
-    },
-    {
-      "time": "18h11",
-      "headline": "Petróleo fecha sexta alta seguida com tensão no Golfo"
-    },
-    {
-      "time": "18h11",
-      "headline": "Lula e Trump conversam pela primeira vez após tarifaço"
+      "time": "07h25",
+      "headline": "Lula vê avanço em pautas no Congresso"
     }
   ]
 }
