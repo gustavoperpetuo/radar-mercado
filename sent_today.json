@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-24",
+  "date": "2026-08-25",
   "headlines": [
     {
-      "time": "07h25",
-      "headline": "Dívida pública tem R$ 1,8 tri a vencer em 2027"
+      "time": "07h18",
+      "headline": "CEOs de bancos pressionam por âncora fiscal"
     },
     {
-      "time": "07h25",
-      "headline": "Tesouro dos EUA intervém em Treasuries e amplia incerteza"
+      "time": "07h18",
+      "headline": "Aliados de Flávio articulam adiar PEC da 6x1"
     },
     {
-      "time": "07h25",
-      "headline": "Vinland vê ajuste fiscal pagando juro menor"
+      "time": "07h18",
+      "headline": "Fazenda projeta mínimo de R$ 1.741 em 2027"
     },
     {
-      "time": "07h25",
-      "headline": "Recuperação judicial da Casas Bahia vira munição eleitoral"
+      "time": "07h18",
+      "headline": "Braskem entra com recuperação extrajudicial de R$ 56,5 bi"
     },
     {
-      "time": "07h25",
-      "headline": "Lula vê avanço em pautas no Congresso"
-    },
-    {
-      "time": "18h16",
-      "headline": "B3 tira Braskem de seus índices após acordo extrajudicial"
-    },
-    {
-      "time": "18h16",
-      "headline": "Braskem protocola recuperação extrajudicial com 39,6% dos credores"
-    },
-    {
-      "time": "18h16",
-      "headline": "Dólar sobe com sanções dos EUA contra o Irã"
-    },
-    {
-      "time": "18h16",
-      "headline": "Petróleo cai após seis altas seguidas"
-    },
-    {
-      "time": "18h16",
-      "headline": "Balança comercial tem superávit de US$ 2,11 bi na 3ª semana de agosto"
+      "time": "07h18",
+      "headline": "Braskem eleva total de REs em 2026 a R$ 174,5 bi"
     }
   ]
 }
