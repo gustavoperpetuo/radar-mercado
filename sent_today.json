@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-25",
+  "date": "2026-08-26",
   "headlines": [
     {
-      "time": "07h18",
-      "headline": "CEOs de bancos pressionam por âncora fiscal"
+      "time": "07h22",
+      "headline": "Governo eleva gasto financeiro para escapar do arcabouço"
     },
     {
-      "time": "07h18",
-      "headline": "Aliados de Flávio articulam adiar PEC da 6x1"
+      "time": "07h22",
+      "headline": "Dividendos de estatais frustram meta fiscal"
     },
     {
-      "time": "07h18",
-      "headline": "Fazenda projeta mínimo de R$ 1.741 em 2027"
+      "time": "07h22",
+      "headline": "Fatia de LFTs na dívida pública dobra em 10 anos"
     },
     {
-      "time": "07h18",
-      "headline": "Braskem entra com recuperação extrajudicial de R$ 56,5 bi"
+      "time": "07h22",
+      "headline": "Lucro das empresas cai 16,4% no 2º tri"
     },
     {
-      "time": "07h18",
-      "headline": "Braskem eleva total de REs em 2026 a R$ 174,5 bi"
-    },
-    {
-      "time": "18h15",
-      "headline": "DI cai forte com exterior e véspera do IPCA-15"
-    },
-    {
-      "time": "18h15",
-      "headline": "Dólar cai com sinais de acordo entre EUA e Irã"
-    },
-    {
-      "time": "18h15",
-      "headline": "Governo revê para baixo gasto previdenciário de 2027"
-    },
-    {
-      "time": "18h15",
-      "headline": "Quaest: Tarcísio tem 40% em SP, Haddad 27%"
-    },
-    {
-      "time": "18h15",
-      "headline": "Ibovespa acelera no fim do pregão com compras de opções de EWZ"
+      "time": "07h22",
+      "headline": "Arrecadação federal sobe 9% em julho"
     }
   ]
 }
