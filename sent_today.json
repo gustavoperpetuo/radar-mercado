@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-26",
+  "date": "2026-08-27",
   "headlines": [
     {
-      "time": "07h22",
-      "headline": "Governo eleva gasto financeiro para escapar do arcabouço"
+      "time": "17h01",
+      "headline": "BC faz 'casadão' após saída mais forte de dólares"
     },
     {
-      "time": "07h22",
-      "headline": "Dividendos de estatais frustram meta fiscal"
+      "time": "17h01",
+      "headline": "Governo central tem superávit de R$ 10,8 bi em julho"
     },
     {
-      "time": "07h22",
-      "headline": "Fatia de LFTs na dívida pública dobra em 10 anos"
+      "time": "17h01",
+      "headline": "Collins sinaliza abertura para alta de juros no Fed"
     },
     {
-      "time": "07h22",
-      "headline": "Lucro das empresas cai 16,4% no 2º tri"
+      "time": "17h01",
+      "headline": "STF forma maioria contra Vale em caso de tributação no exterior"
     },
     {
-      "time": "07h22",
-      "headline": "Arrecadação federal sobe 9% em julho"
-    },
-    {
-      "time": "21h18",
-      "headline": "Deflação do IPCA-15 não muda cautela do BC"
-    },
-    {
-      "time": "21h18",
-      "headline": "Warsh questiona guidance do Fed em Jackson Hole"
-    },
-    {
-      "time": "21h18",
-      "headline": "DI fecha estável entre PCE e deflação do IPCA-15"
-    },
-    {
-      "time": "21h18",
-      "headline": "TCU alerta para risco fiscal no Orçamento de 2026"
-    },
-    {
-      "time": "21h18",
-      "headline": "Braskem cai mais de 30% na semana"
+      "time": "17h01",
+      "headline": "Petróleo salta com impasse EUA-Irã"
     }
   ]
 }
