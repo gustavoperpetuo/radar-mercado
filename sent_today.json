@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-28",
+  "date": "2026-08-29",
   "headlines": [
     {
-      "time": "01h58",
-      "headline": "Justiça suspende imposto de 12% sobre exportação de petróleo"
+      "time": "00h05",
+      "headline": "Governo projeta superávit 'efetivo' de R$ 18-20 bi em 2027"
     },
     {
-      "time": "01h58",
-      "headline": "Camex prorroga tarifa de exportação de petróleo mesmo após liminar"
+      "time": "00h05",
+      "headline": "Inadimplência do crédito livre bate recorde em 6 linhas"
     },
     {
-      "time": "01h58",
-      "headline": "Lula descarta preocupação com dívida pública"
+      "time": "00h05",
+      "headline": "Justiça blinda Casas Bahia contra credores por 180 dias"
     },
     {
-      "time": "01h58",
-      "headline": "Flávio critica alíquota de 28% do IVA"
+      "time": "00h05",
+      "headline": "EUA garantem controle de reservas de petróleo venezuelanas"
     },
     {
-      "time": "01h58",
-      "headline": "Guerra no Oriente Médio completa 6 meses com preço nos mercados"
-    },
-    {
-      "time": "18h00",
-      "headline": "Curva de juros sobe após discurso duro de Warsh no Fed"
-    },
-    {
-      "time": "18h00",
-      "headline": "Dólar sobe a R$ 5,20 após fala dura de Warsh no Fed"
-    },
-    {
-      "time": "18h00",
-      "headline": "Caged de julho vem bem abaixo do esperado"
-    },
-    {
-      "time": "18h00",
-      "headline": "SocGen agora vê alta de juros no Fed em setembro"
-    },
-    {
-      "time": "18h00",
-      "headline": "Colômbia pode recorrer ao FMI após piora fiscal"
+      "time": "00h05",
+      "headline": "STF desbloqueia imóveis de CCBs do Master repassadas ao BRB"
     }
   ]
 }
