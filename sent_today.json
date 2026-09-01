@@ -1,45 +1,25 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "headlines": [
     {
-      "time": "14h15",
-      "headline": "Governo apresenta PLOA 2027 nesta segunda"
+      "time": "11h21",
+      "headline": "PIB avança 0,5% no 2º tri, acima do esperado"
     },
     {
-      "time": "14h15",
-      "headline": "Superávit dos Estados é o menor desde 2000, diz BC"
+      "time": "11h21",
+      "headline": "Real e juros locais descolam do exterior com eleição e PIB"
     },
     {
-      "time": "14h15",
-      "headline": "Durigan defende aprimorar arcabouço fiscal e reduzir juros"
+      "time": "11h21",
+      "headline": "Petróleo sobe com tensão EUA-Irã e Ormuz"
     },
     {
-      "time": "14h15",
-      "headline": "Moretti mantém meta de superávit em 2027 sem receita nova"
+      "time": "11h21",
+      "headline": "Bolsas de NY caem com juros dos Treasuries em alta"
     },
     {
-      "time": "14h15",
-      "headline": "Marinho vê queda de 2 p.p. na dívida-PIB com Flávio"
-    },
-    {
-      "time": "21h09",
-      "headline": "PLOA 2027 prevê superávit primário de R$ 18,6 bi"
-    },
-    {
-      "time": "21h09",
-      "headline": "PLOA 2027 traz PIB de 2,46% e Selic média de 12,53%"
-    },
-    {
-      "time": "21h09",
-      "headline": "Ibovespa sobe com cenário eleitoral e fecha agosto em queda de 0,33%"
-    },
-    {
-      "time": "21h09",
-      "headline": "Petróleo sobe 2% com novos ataques EUA-Irã"
-    },
-    {
-      "time": "21h09",
-      "headline": "Brasil e EUA retomam negociação sobre tarifaço"
+      "time": "11h21",
+      "headline": "Barr sinaliza alta de juros se inflação não recuar"
     }
   ]
 }
