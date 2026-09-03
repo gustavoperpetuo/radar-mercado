@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "headlines": [
     {
-      "time": "10h54",
-      "headline": "Pesquisa Quaest mais apertada move ativos brasileiros"
+      "time": "10h57",
+      "headline": "Ibovespa sobe 1,5% de olho em Datafolha e caso Master"
     },
     {
-      "time": "10h54",
-      "headline": "Quaest: Lula tem 37% no 1º turno, Flávio 30%"
+      "time": "10h57",
+      "headline": "Dólar recua com eleição no radar e petróleo em alta"
     },
     {
-      "time": "10h54",
-      "headline": "Juros futuros recuam com queima de prêmios"
+      "time": "10h57",
+      "headline": "DI recua com eleição mais acirrada no radar"
     },
     {
-      "time": "10h54",
-      "headline": "BC prepara medidas após alta no endividamento das famílias"
+      "time": "10h57",
+      "headline": "Petróleo sobe com tensão EUA-Irã e queda de estoques"
     },
     {
-      "time": "10h54",
-      "headline": "CCJ do Senado vota PEC do fim da escala 6x1"
-    },
-    {
-      "time": "19h52",
-      "headline": "Ibovespa sobe 3% com eleições no radar"
-    },
-    {
-      "time": "19h52",
-      "headline": "Petróleo sobe pelo 3º dia com tensão EUA-Irã"
-    },
-    {
-      "time": "19h52",
-      "headline": "Bolsas de NY sobem com big techs e alívio em Treasuries curtos"
-    },
-    {
-      "time": "19h52",
-      "headline": "Indústria cresce em julho, mas desaceleração deve seguir"
-    },
-    {
-      "time": "19h52",
-      "headline": "Câmara aprova urgência para viabilizar Redata em 2026"
+      "time": "10h57",
+      "headline": "NY sobe com queda nas apostas de alta de juros do Fed"
     }
   ]
 }
