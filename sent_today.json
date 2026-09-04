@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "headlines": [
     {
-      "time": "10h57",
-      "headline": "Ibovespa sobe 1,5% de olho em Datafolha e caso Master"
+      "time": "10h49",
+      "headline": "EUA criam 162 mil vagas em agosto, acima do esperado"
     },
     {
-      "time": "10h57",
-      "headline": "Dólar recua com eleição no radar e petróleo em alta"
+      "time": "10h49",
+      "headline": "BC repete perguntas sobre El Niño e conflito no Oriente Médio"
     },
     {
-      "time": "10h57",
-      "headline": "DI recua com eleição mais acirrada no radar"
+      "time": "10h49",
+      "headline": "Crise no STF e Datafolha antecedem payroll nos EUA"
     },
     {
-      "time": "10h57",
-      "headline": "Petróleo sobe com tensão EUA-Irã e queda de estoques"
+      "time": "10h49",
+      "headline": "Vale desiste de IPO da Vale Base Metals"
     },
     {
-      "time": "10h57",
-      "headline": "NY sobe com queda nas apostas de alta de juros do Fed"
-    },
-    {
-      "time": "19h52",
-      "headline": "Datafolha: Lula 38% x Flávio 33% no 1º turno"
-    },
-    {
-      "time": "19h52",
-      "headline": "DI futuro cai pelo terceiro pregão seguido"
-    },
-    {
-      "time": "19h52",
-      "headline": "Lula rejeita atribuir déficit fiscal à Previdência"
-    },
-    {
-      "time": "19h52",
-      "headline": "Durigan diz que dívida preocupa, mas é reversível"
-    },
-    {
-      "time": "19h52",
-      "headline": "NY sobe com discurso mais dovish de Waller no Fed"
+      "time": "10h49",
+      "headline": "Fundo soberano da Noruega quer reduzir peso de soberanos"
     }
   ]
 }
