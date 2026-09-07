@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-04",
+  "date": "2026-09-07",
   "headlines": [
     {
-      "time": "10h49",
-      "headline": "EUA criam 162 mil vagas em agosto, acima do esperado"
+      "time": "12h20",
+      "headline": "Brent ultrapassa US$ 97 com tensão em Ormuz"
     },
     {
-      "time": "10h49",
-      "headline": "BC repete perguntas sobre El Niño e conflito no Oriente Médio"
+      "time": "12h20",
+      "headline": "Faria Lima muda tom sobre eleição presidencial"
     },
     {
-      "time": "10h49",
-      "headline": "Crise no STF e Datafolha antecedem payroll nos EUA"
+      "time": "12h20",
+      "headline": "Mercado de opções de dólar precifica eleição mais apertada"
     },
     {
-      "time": "10h49",
-      "headline": "Vale desiste de IPO da Vale Base Metals"
+      "time": "12h20",
+      "headline": "XP e 4intelligence cortam projeção de PIB para 2026"
     },
     {
-      "time": "10h49",
-      "headline": "Fundo soberano da Noruega quer reduzir peso de soberanos"
-    },
-    {
-      "time": "19h35",
-      "headline": "Dólar sobe com payroll forte, mas cai 1,27% na semana"
-    },
-    {
-      "time": "19h35",
-      "headline": "DI fecha em leve queda com eleição no radar"
-    },
-    {
-      "time": "19h35",
-      "headline": "Exportações a EUA sobem em agosto, mas por preço"
-    },
-    {
-      "time": "19h35",
-      "headline": "Estrangeiro zera parte da aposta contra o real"
-    },
-    {
-      "time": "19h35",
-      "headline": "Ace eleva aposta no Brasil por vitória de Flávio Bolsonaro"
+      "time": "12h20",
+      "headline": "STF pode julgar tributação de benefícios fiscais"
     }
   ]
 }
