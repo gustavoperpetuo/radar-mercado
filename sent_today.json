@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "headlines": [
     {
-      "time": "10h56",
-      "headline": "Dólar recua com real precificando eleição"
+      "time": "10h59",
+      "headline": "Irã e EUA trocam ataques no Estreito de Ormuz, Brent passa US$ 100"
     },
     {
-      "time": "10h56",
-      "headline": "Curva de juros achata com Quaest e empate no 2º turno"
+      "time": "10h59",
+      "headline": "Dólar sobe com petróleo acima de US$ 100"
     },
     {
-      "time": "10h56",
-      "headline": "Focus: IPCA 2026 recua a 5,00%"
+      "time": "10h59",
+      "headline": "DI futuro sobe em correção após petróleo voltar a US$ 100"
     },
     {
-      "time": "10h56",
-      "headline": "Petróleo sobe com tensão no Oriente Médio"
+      "time": "10h59",
+      "headline": "Petróleo dispara acima de US$ 100 com tensão EUA-Irã"
     },
     {
-      "time": "10h56",
-      "headline": "STF forma maioria para manter afastamento de diretor da PF"
-    },
-    {
-      "time": "20h01",
-      "headline": "Petróleo sobe ao maior nível desde junho com guerra no Golfo"
-    },
-    {
-      "time": "20h01",
-      "headline": "BC fará 'casadão' de US$ 1 bi na quinta"
-    },
-    {
-      "time": "20h01",
-      "headline": "Quaest: Celina lidera corrida ao GDF com 35%"
-    },
-    {
-      "time": "20h01",
-      "headline": "Quaest: Tarcísio amplia vantagem sobre Haddad em SP"
-    },
-    {
-      "time": "20h01",
-      "headline": "Irã ameaça alvos no Kuwait e Bahrein após ataque dos EUA"
+      "time": "10h59",
+      "headline": "Dino reverte afastamento da cúpula da PF"
     }
   ]
 }
