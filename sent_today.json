@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "headlines": [
     {
       "time": "10h54",
-      "headline": "Petróleo dispara com risco no Estreito de Ormuz"
+      "headline": "IPCA de agosto reforça espaço para corte de juros"
     },
     {
       "time": "10h54",
-      "headline": "BCE sobe juros a 2,5% ao ano"
+      "headline": "Núcleo do CPI dos EUA reforça aposta de alta do Fed"
     },
     {
       "time": "10h54",
-      "headline": "Juros futuros sobem com petróleo acima de US$ 105"
+      "headline": "Caso Master, eleição e inflação movem mercado"
     },
     {
       "time": "10h54",
-      "headline": "Dólar sobe com petróleo e aversão a risco"
+      "headline": "DI cai forte após IPCA mais fraco que o esperado"
     },
     {
       "time": "10h54",
-      "headline": "IGP-M acelera para 0,93% na 1ª prévia de setembro"
-    },
-    {
-      "time": "19h49",
-      "headline": "Real se destaca com eleição no radar"
-    },
-    {
-      "time": "19h49",
-      "headline": "Curva local cede na ponta longa, exterior limita alívio"
-    },
-    {
-      "time": "19h49",
-      "headline": "Wells Fargo mantém aposta em real e traça cenários eleitorais"
-    },
-    {
-      "time": "19h49",
-      "headline": "Treasuries testam limite de Bessent contra alta dos juros"
-    },
-    {
-      "time": "19h49",
-      "headline": "Crédito privado enfrenta teste de estresse, dizem participantes"
+      "headline": "PF liga Vorcaro a pagamentos e regalias a diretores do BC"
     }
   ]
 }
