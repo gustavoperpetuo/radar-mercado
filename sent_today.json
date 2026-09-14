@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-14",
   "headlines": [
     {
-      "time": "10h54",
-      "headline": "IPCA de agosto reforça espaço para corte de juros"
+      "time": "13h00",
+      "headline": "Real e juros pioram apesar de melhora após Quaest"
     },
     {
-      "time": "10h54",
-      "headline": "Núcleo do CPI dos EUA reforça aposta de alta do Fed"
+      "time": "13h00",
+      "headline": "Dólar sobe com eleições e aversão a risco global"
     },
     {
-      "time": "10h54",
-      "headline": "Caso Master, eleição e inflação movem mercado"
+      "time": "13h00",
+      "headline": "Ibovespa cai mais de 1% com aversão a risco e eleições"
     },
     {
-      "time": "10h54",
-      "headline": "DI cai forte após IPCA mais fraco que o esperado"
+      "time": "13h00",
+      "headline": "Quaest: Flávio abre 42% a 40% sobre Lula no 2º turno"
     },
     {
-      "time": "10h54",
-      "headline": "PF liga Vorcaro a pagamentos e regalias a diretores do BC"
-    },
-    {
-      "time": "19h50",
-      "headline": "DI fecha estável após IPCA fraco e ruído do caso Master"
-    },
-    {
-      "time": "19h50",
-      "headline": "Dólar sobe com ajuste de posições e ruído do caso Master"
-    },
-    {
-      "time": "19h50",
-      "headline": "Ibovespa recua com sigilo do Master e cautela pré-Datafolha"
-    },
-    {
-      "time": "19h50",
-      "headline": "Datafolha: Lula 46% x Flávio 44% no 2º turno"
-    },
-    {
-      "time": "19h50",
-      "headline": "Arábia Saudita suspende oleoduto após ataques"
+      "time": "13h00",
+      "headline": "Fed sob Warsh caminha para elevar juros, contrariando Trump"
     }
   ]
 }
