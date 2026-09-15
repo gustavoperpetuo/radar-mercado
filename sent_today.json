@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "headlines": [
     {
-      "time": "13h00",
-      "headline": "Real e juros pioram apesar de melhora após Quaest"
+      "time": "11h30",
+      "headline": "STF e Treasuries no radar antes de Fed e Copom"
     },
     {
-      "time": "13h00",
-      "headline": "Dólar sobe com eleições e aversão a risco global"
+      "time": "11h30",
+      "headline": "Varejo restrito surpreende com queda em julho"
     },
     {
-      "time": "13h00",
-      "headline": "Ibovespa cai mais de 1% com aversão a risco e eleições"
+      "time": "11h30",
+      "headline": "Petróleo sobe 2º dia com tensão no Oriente Médio"
     },
     {
-      "time": "13h00",
-      "headline": "Quaest: Flávio abre 42% a 40% sobre Lula no 2º turno"
+      "time": "11h30",
+      "headline": "Sem conteúdo suficiente para digest"
     },
     {
-      "time": "13h00",
-      "headline": "Fed sob Warsh caminha para elevar juros, contrariando Trump"
-    },
-    {
-      "time": "20h33",
-      "headline": "4Intelligence vê Selic a 13,75% e ciclo pausado"
-    },
-    {
-      "time": "20h33",
-      "headline": "STF julga nesta terça possível investigação de Moraes"
-    },
-    {
-      "time": "20h33",
-      "headline": "Petróleo sobe, mas recua das máximas com sinais diplomáticos"
-    },
-    {
-      "time": "20h33",
-      "headline": "Moody's eleva Embraer para Baa2, perspectiva estável"
-    },
-    {
-      "time": "20h33",
-      "headline": "Brasil e EUA marcam reunião presencial sobre tarifaço"
+      "time": "11h30",
+      "headline": "BC faz casadão e injeta US$ 1 bi no à vista"
     }
   ]
 }
