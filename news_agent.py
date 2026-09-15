@@ -21,7 +21,8 @@ from datetime import datetime, timedelta, timezone
 
 FEEDS = [
     # Brasil — valide/ajuste as URLs, feeds mudam de tempos em tempos.
-    # Os mais fortes vêm primeiro: dentro do teto MAX_ITEMS_TO_CLAUDE, ordem = prioridade.
+    # A ordem NÃO é prioridade: fetch_articles() intercala as fontes (round-robin),
+    # senão o Valor (~85 matérias/6h) enche o teto sozinho.
     "https://pox.globo.com/rss/valor",              # Valor Econômico (macro/mercado)
     "https://pox.globo.com/rss/valor/brasil",       # Valor Brasil (política/fiscal)
     "https://braziljournal.com/feed/",              # Brazil Journal (mercado/corporativo)
@@ -34,10 +35,21 @@ FEEDS = [
     "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069",
 ]
 
-MAX_AGE_HOURS = 6          # ignora notícias mais velhas que isso
-MAX_ITEMS_TO_CLAUDE = 60   # teto de headlines por ciclo
+# A janela precisa cobrir o intervalo ENTRE disparos, senão sobra ponto cego.
+# Com 2 disparos/dia (07h e 18h BRT) o maior intervalo é ~15h; 18h dá folga para
+# o atraso do cron do GitHub. O dedupe por ID evita reprocessar a sobreposição.
+MAX_AGE_HOURS = 18         # ignora notícias mais velhas que isso
+# Válvula de segurança, NÃO filtro editorial: alto o bastante para não cortar
+# (18h rende ~200 artigos). Quem faz curadoria é a passada de seleção do Claude.
+MAX_ITEMS_TO_CLAUDE = 250  # teto de headlines por ciclo
 MAX_NEWS = 5               # teto de NOTÍCIAS na mensagem final
+SELECT_EXTRA = 2           # candidatas reserva: a redação descarta texto ruim sem encolher o digest
 MAX_BODY_CHARS = 6000      # teto do texto extraído por artigo (controla custo/tokens)
+# Gate do corpo extraído. Páginas "ao vivo" (JS) fazem o extrator pegar teaser de OUTRA
+# matéria; paywall devolve só título + 1 parágrafo. Nos dois casos o texto vem
+# não-vazio e, sem gate, iria pro modelo — que escreve "texto não traz detalhes".
+BODY_MIN_TITLE_OVERLAP = 0.5   # fração das palavras fortes do título presentes no corpo
+BODY_MIN_GAIN = 1.5            # corpo precisa ter >= 1.5x o tamanho do summary pra valer
 SENT_IDS_FILE = "sent_ids.json"
 SENT_TODAY_FILE = "sent_today.json"   # memória intra-day (dedupe semântico)
 MAX_SENT_TODAY = 100       # cap defensivo (um dia real fica bem abaixo disso)
@@ -86,9 +98,13 @@ def clean_summary(entry) -> str:
 
 
 def fetch_articles() -> list[dict]:
+    """Coleta os feeds e INTERCALA as fontes (round-robin: 1 de cada por rodada).
+    Sem isso, uma fonte prolífica (o Valor publica ~85 matérias em 6h) enche
+    sozinha o teto MAX_ITEMS_TO_CLAUDE e as demais nunca chegam ao Claude."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=MAX_AGE_HOURS)
-    articles = []
+    por_feed: list[list[dict]] = []
     for url in FEEDS:
+        do_feed = []
         try:
             feed = feedparser.parse(url)
             source = feed.feed.get("title", url)
@@ -100,7 +116,7 @@ def fetch_articles() -> list[dict]:
                         break
                 if published and published < cutoff:
                     continue
-                articles.append({
+                do_feed.append({
                     "id": article_id(e),
                     "title": e.get("title", "").strip(),
                     "summary": clean_summary(e),
@@ -109,6 +125,15 @@ def fetch_articles() -> list[dict]:
                 })
         except Exception as ex:
             print(f"[warn] feed falhou {url}: {ex}")
+        if do_feed:
+            por_feed.append(do_feed)
+
+    # intercala: article[0] de cada feed, depois article[1] de cada, e assim por diante
+    articles = []
+    for i in range(max((len(f) for f in por_feed), default=0)):
+        for do_feed in por_feed:
+            if i < len(do_feed):
+                articles.append(do_feed[i])
     return articles
 
 
@@ -139,15 +164,32 @@ def fetch_article_body(link: str) -> str | None:
         return None
 
 
+def usable_body(body: str | None, title: str, summary: str) -> bool:
+    """O corpo extraído só serve se (1) for da matéria certa — palavras fortes do
+    título aparecem nele — e (2) acrescentar texto além do summary do RSS."""
+    if not body:
+        return False
+    strong = {w for w in re.findall(r"\w+", title.lower()) if len(w) > 4}
+    if strong:
+        low = body.lower()
+        overlap = sum(1 for w in strong if w in low) / len(strong)
+        if overlap < BODY_MIN_TITLE_OVERLAP:
+            return False
+    return len(body) >= BODY_MIN_GAIN * max(len(summary), 1)
+
+
 # ---------------------------------------------------------------
 # 2. Dedupe
 # ---------------------------------------------------------------
 
 def load_sent_ids() -> set:
     if os.path.exists(SENT_IDS_FILE):
-        with open(SENT_IDS_FILE) as f:
-            return set(json.load(f))
-    return set()
+        try:
+            with open(SENT_IDS_FILE) as f:
+                return set(json.load(f))
+        except (json.JSONDecodeError, OSError):
+            print("[warn] sent_ids.json corrompido/ilegível — recomeçando o dedupe vazio")
+    return set()   # arquivo ausente ou corrompido -> não derruba o job
 
 
 def save_sent_ids(ids: set):
@@ -203,13 +245,12 @@ def call_claude(prompt: str, max_tokens: int) -> str:
             "anthropic-version": "2023-06-01",
             "content-type": "application/json",
         },
-            json={
+        json={
             "model": ANTHROPIC_MODEL,
             "max_tokens": max_tokens,
             "thinking": {"type": "disabled"},   # sem raciocínio: controla custo e não come o max_tokens
             "messages": [{"role": "user", "content": prompt}],
         },
-
         timeout=120,
     )
     resp.raise_for_status()
@@ -262,6 +303,9 @@ Ignore: variação diária trivial de ativo, fofoca corporativa, matéria de opi
 conteúdo repetido (se duas cobrem o mesmo fato, escolha a fonte mais forte), e
 qualquer coisa sem consequência clara para alocação. Escopo geográfico: só o que
 afeta o mercado brasileiro ou os bancos centrais que transmitem para o Brasil.
+Evite também páginas "ao vivo" / cobertura em tempo real e colunas-resumo do dia
+("agenda", "o que acompanhar", "radar da manhã"): não têm texto extraível ou
+misturam vários assuntos. Prefira a matéria específica sobre o fato.
 
 Sobre política, a linha divisória é SEMPRE a transmissão a mercado: entra o fato
 político que move fiscal, curva ou câmbio (voto de reforma, risco à meta, crise
@@ -300,7 +344,7 @@ def select_with_claude(articles: list[dict], sent_today: list[dict]) -> list[str
     ]
     text = call_claude(
         SELECT_PROMPT.format(
-            max_news=MAX_NEWS,
+            max_news=MAX_NEWS + SELECT_EXTRA,
             sent_today=format_sent_today(sent_today),
             headlines=json.dumps(headlines, ensure_ascii=False),
         ),
@@ -308,13 +352,14 @@ def select_with_claude(articles: list[dict], sent_today: list[dict]) -> list[str
     )
     ids = parse_claude_json(text).get("ids", [])
     valid = {a["id"] for a in articles}
-    # preserva a ordem de relevância, remove duplicatas e ids inválidos, aplica teto
+    # preserva a ordem de relevância, remove duplicatas e ids inválidos, aplica teto.
+    # Devolve MAX_NEWS + reserva: a redação usa as reservas só se descartar alguma.
     seen, out = set(), []
     for i in ids:
         if i in valid and i not in seen:
             seen.add(i)
             out.append(i)
-    return out[:MAX_NEWS]
+    return out[:MAX_NEWS + SELECT_EXTRA]
 
 
 # --- Passada 2: redação (uma chamada por artigo, com o texto real) -----
@@ -372,6 +417,10 @@ conta própria. Na dúvida, reporte só o fato. Não dê recomendação nem opin
 - "headline": manchete curta, no máximo 10 palavras, em PT-BR.
 - "bullets": 2 a 3 itens, cada um no máximo 20 palavras, em PT-BR, extraídos do
   texto.
+- Se o texto NÃO sustentar a manchete — trata de outro assunto, é só uma lista de
+  manchetes soltas, é página "ao vivo" sem conteúdo, ou é um teaser sem dado
+  concreto — responda EXATAMENTE {{"skip": true}}. NUNCA escreva manchete ou
+  bullets dizendo que falta conteúdo; isso nunca deve chegar ao grupo.
 - Responda SOMENTE com JSON válido, sem markdown, neste formato exato:
 {{"headline": "...", "bullets": ["...", "..."]}}
 
@@ -399,11 +448,27 @@ def write_item(article: dict) -> dict | None:
     except json.JSONDecodeError:
         print(f"[warn] JSON inválido na redação de {article['id']}")
         return None
+    if data.get("skip"):
+        print(f"[info] redação pulou (texto não sustenta a manchete): {article['title'][:70]}")
+        return None
     headline = data.get("headline", "").strip()
     bullets = [b.strip() for b in data.get("bullets", []) if b.strip()]
     if not headline or not bullets:
         return None
+    # trava extra: se o modelo ignorar o skip e escrever "texto não traz...", não envia
+    blob = (headline + " " + " ".join(bullets)).lower()
+    if any(m in blob for m in META_PHRASES):
+        print(f"[info] redação descartada (bullet meta): {article['title'][:70]}")
+        return None
     return {**article, "headline": headline, "bullets": bullets}
+
+
+# Frases que denunciam bullet "meta" (o modelo falando do texto em vez do fato).
+META_PHRASES = (
+    "texto fornecido", "texto enviado", "texto disponível", "conteúdo disponível",
+    "sem conteúdo", "não traz detalhes", "não há dados", "não permite compor",
+    "manchetes soltas", "não relacionado", "não relacionados", "sem matéria completa",
+)
 
 
 # ---------------------------------------------------------------
@@ -483,17 +548,21 @@ def main():
     selected = [by_id[i] for i in selected_ids]
     print(f"[info] {len(selected)} selecionadas pelo Claude")
 
-    # Busca o corpo real de cada selecionada (fallback: summary do RSS)
+    # Passada 2: para cada selecionada (em ordem de relevância), busca o corpo real,
+    # valida, redige. Para ao completar MAX_NEWS; as reservas só entram se houver
+    # descarte. Corpo inválido (página errada, teaser de paywall) cai pro summary.
+    items = []
     for art in selected:
+        if len(items) >= MAX_NEWS:
+            break
         body = fetch_article_body(art.get("link", ""))
-        if body:
+        if usable_body(body, art["title"], art["summary"]):
             art["body"] = body
         else:
-            print(f"[warn] sem corpo, usando summary: {art['source']}")
-
-    # Passada 2: redação, uma chamada por artigo, com o texto em mãos
-    items = [w for art in selected if (w := write_item(art))]
-    print(f"[info] {len(items)} redigidas")
+            print(f"[warn] corpo inválido/raso, usando summary: {art['title'][:70]}")
+        if w := write_item(art):
+            items.append(w)
+    print(f"[info] {len(items)} redigidas de {len(selected)} candidatas")
 
     if items:
         entregues = broadcast(build_message(items))
