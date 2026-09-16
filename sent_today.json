@@ -1,65 +1,25 @@
 {
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "headlines": [
     {
-      "time": "11h30",
-      "headline": "STF e Treasuries no radar antes de Fed e Copom"
+      "time": "11h24",
+      "headline": "Copom deve cortar Selic para 13,75% ao ano"
     },
     {
-      "time": "11h30",
-      "headline": "Varejo restrito surpreende com queda em julho"
+      "time": "11h24",
+      "headline": "Copom e Fed decidem juros em direções opostas hoje"
     },
     {
-      "time": "11h30",
-      "headline": "Petróleo sobe 2º dia com tensão no Oriente Médio"
+      "time": "11h24",
+      "headline": "IBC-Br cai 0,2% em julho, segunda queda seguida"
     },
     {
-      "time": "11h30",
-      "headline": "Sem conteúdo suficiente para digest"
+      "time": "11h24",
+      "headline": "WHG vê Selic a 10% em cenário eleitoral fiscal"
     },
     {
-      "time": "11h30",
-      "headline": "BC faz casadão e injeta US$ 1 bi no à vista"
-    },
-    {
-      "time": "15h09",
-      "headline": "Treasury de 10 anos vai a 5,02%, maior nível desde 2007"
-    },
-    {
-      "time": "15h09",
-      "headline": "Prisma Fiscal: mercado revisa déficit de 2026 para baixo"
-    },
-    {
-      "time": "15h09",
-      "headline": "Bessent atribui alta dos Treasuries a fatores globais"
-    },
-    {
-      "time": "15h09",
-      "headline": "Bolsas europeias caem com petróleo em alta"
-    },
-    {
-      "time": "15h09",
-      "headline": "Bitcoin cai a US$ 76 mil na véspera do Fed"
-    },
-    {
-      "time": "20h13",
-      "headline": "Curva de juros se inclina com ruído político no STF"
-    },
-    {
-      "time": "20h13",
-      "headline": "Bradesco só vê Selic de um dígito em 2028"
-    },
-    {
-      "time": "20h13",
-      "headline": "Petróleo dispara com risco de oferta no Oriente Médio"
-    },
-    {
-      "time": "20h13",
-      "headline": "Dólar sobe de leve na véspera de Fed e Copom"
-    },
-    {
-      "time": "20h13",
-      "headline": "Petrobras puxa Ibovespa em dia de STF e baixa liquidez"
+      "time": "11h24",
+      "headline": "Prisma Fiscal: mercado reduz projeção de déficit"
     }
   ]
 }
