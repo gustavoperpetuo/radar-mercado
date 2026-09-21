@@ -1,45 +1,21 @@
 {
-  "date": "2026-09-18",
+  "date": "2026-09-21",
   "headlines": [
     {
-      "time": "10h55",
-      "headline": "Governo remaneja Orçamento para reajuste do Bolsa Família"
+      "time": "13h02",
+      "headline": "Focus: mais um corte de Selic entra no radar em 2026"
     },
     {
-      "time": "10h55",
-      "headline": "MP no TCU pede suspensão de reajuste do Bolsa Família"
+      "time": "13h02",
+      "headline": "Focus: IPCA 2026 sobe, Selic e PIB recuam"
     },
     {
-      "time": "10h55",
-      "headline": "Reajuste do Bolsa Família complica meta fiscal de 2027"
+      "time": "13h02",
+      "headline": "Estados projetam déficit primário de R$ 37 bi em 2026"
     },
     {
-      "time": "10h55",
-      "headline": "DI futuro perto da estabilidade com foco eleitoral"
-    },
-    {
-      "time": "10h55",
-      "headline": "Produção industrial dos EUA fica estável em agosto"
-    },
-    {
-      "time": "19h53",
-      "headline": "DI fecha estável com eleição no radar"
-    },
-    {
-      "time": "19h53",
-      "headline": "IGP-M de setembro deve rodar perto de 1,5%"
-    },
-    {
-      "time": "19h53",
-      "headline": "Dólar fecha em leve alta em pregão fraco"
-    },
-    {
-      "time": "19h53",
-      "headline": "Ibovespa cai e tem primeira semana negativa desde agosto"
-    },
-    {
-      "time": "19h53",
-      "headline": "Lula lidera 1º turno, disputa com Flávio se aperta"
+      "time": "13h02",
+      "headline": "Mercado local mais nervoso com eleição próxima"
     }
   ]
 }
