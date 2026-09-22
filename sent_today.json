@@ -1,41 +1,25 @@
 {
-  "date": "2026-09-21",
+  "date": "2026-09-22",
   "headlines": [
     {
-      "time": "13h02",
-      "headline": "Focus: mais um corte de Selic entra no radar em 2026"
+      "time": "11h13",
+      "headline": "Ata do Copom liga fiscal frouxo a juro neutro mais alto"
     },
     {
-      "time": "13h02",
-      "headline": "Focus: IPCA 2026 sobe, Selic e PIB recuam"
+      "time": "11h13",
+      "headline": "Copom: ritmo de corte da Selic seguirá dados do cenário"
     },
     {
-      "time": "13h02",
-      "headline": "Estados projetam déficit primário de R$ 37 bi em 2026"
+      "time": "11h13",
+      "headline": "Flávio empata com Lula em pesquisa Quaest para 2º turno"
     },
     {
-      "time": "13h02",
-      "headline": "Mercado local mais nervoso com eleição próxima"
+      "time": "11h13",
+      "headline": "Crise política de Merz ameaça orçamento de € 2 tri da UE"
     },
     {
-      "time": "20h42",
-      "headline": "CNI: produção industrial tem pior agosto em 11 anos"
-    },
-    {
-      "time": "20h42",
-      "headline": "Fazenda revisa PIB de 2026 para baixo"
-    },
-    {
-      "time": "20h42",
-      "headline": "Ibovespa sobe 0,74% e retoma 186 mil pontos"
-    },
-    {
-      "time": "20h42",
-      "headline": "Real avança com aposta em eleição mais apertada"
-    },
-    {
-      "time": "20h42",
-      "headline": "Juros futuros caem com eleição e exterior"
+      "time": "11h13",
+      "headline": "Irã condiciona reabertura de Ormuz a recuo dos EUA"
     }
   ]
 }
