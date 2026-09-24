@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-23",
+  "date": "2026-09-24",
   "headlines": [
     {
-      "time": "11h28",
-      "headline": "Maioria vê pausa na Selic em novembro, diz BC"
+      "time": "11h29",
+      "headline": "BC reduz projeção de PIB para 2026 e 2027"
     },
     {
-      "time": "11h28",
-      "headline": "Fazenda reduz projeção de PIB para 2026 e 2027"
+      "time": "11h29",
+      "headline": "Governo piora projeção fiscal de 2026 para déficit"
     },
     {
-      "time": "11h28",
-      "headline": "Ibovespa sobe com bancos e Petrobras"
+      "time": "11h29",
+      "headline": "Governo eleva projeção de déficit fiscal para R$ 67,3 bi"
     },
     {
-      "time": "11h28",
-      "headline": "IPC-S acelera para 0,52% na 3ª quadrissemana"
+      "time": "11h29",
+      "headline": "BC eleva projeção de déficit em conta corrente para 2026"
     },
     {
-      "time": "11h28",
-      "headline": "Nagel vê BCE precisando de juros restritivos"
-    },
-    {
-      "time": "20h15",
-      "headline": "Treasuries longos batem máximas de décadas"
-    },
-    {
-      "time": "20h15",
-      "headline": "BC faz novo leilão de linha por pressão no casado"
-    },
-    {
-      "time": "20h15",
-      "headline": "Goldman traça cenários para o real pós-eleição"
-    },
-    {
-      "time": "20h15",
-      "headline": "Temor de restrição ao diesel nos EUA mexe com inflação implícita"
-    },
-    {
-      "time": "20h15",
-      "headline": "OCDE eleva projeção de PIB do Brasil em 2026 para 2%"
+      "time": "11h29",
+      "headline": "BC amplia atenção aos riscos do petróleo na inflação"
     }
   ]
 }
