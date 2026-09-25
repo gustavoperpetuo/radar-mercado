@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "headlines": [
     {
-      "time": "11h29",
-      "headline": "BC reduz projeção de PIB para 2026 e 2027"
+      "time": "11h48",
+      "headline": "IPCA-15 acelera a 0,70% em setembro, acima do esperado"
     },
     {
-      "time": "11h29",
-      "headline": "Governo piora projeção fiscal de 2026 para déficit"
+      "time": "11h48",
+      "headline": "IPCA-15 acima do esperado pressiona juros curtos"
     },
     {
-      "time": "11h29",
-      "headline": "Governo eleva projeção de déficit fiscal para R$ 67,3 bi"
+      "time": "11h48",
+      "headline": "Contenção de gastos cai e déficit real sobe a R$ 80,9 bi"
     },
     {
-      "time": "11h29",
-      "headline": "BC eleva projeção de déficit em conta corrente para 2026"
+      "time": "11h48",
+      "headline": "Ibovespa cai com Petrobras e IPCA-15 acima do esperado"
     },
     {
-      "time": "11h29",
-      "headline": "BC amplia atenção aos riscos do petróleo na inflação"
-    },
-    {
-      "time": "20h35",
-      "headline": "BC não vê efeitos de segunda ordem do choque do petróleo"
-    },
-    {
-      "time": "20h35",
-      "headline": "Dólar sobe a R$ 5,19 com Treasuries e petróleo em alta"
-    },
-    {
-      "time": "20h35",
-      "headline": "Governo troca bloqueio por contingenciamento e reajusta Bolsa Família"
-    },
-    {
-      "time": "20h35",
-      "headline": "Cancelamento de precatórios vira receita primária, diz Ceron"
-    },
-    {
-      "time": "20h35",
-      "headline": "Fed vê inflação persistente e não descarta alta de juros"
+      "time": "11h48",
+      "headline": "Nova regra de FIDCs gera reação no setor de special situations"
     }
   ]
 }
