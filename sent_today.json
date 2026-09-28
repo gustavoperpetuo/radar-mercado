@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-28",
   "headlines": [
     {
-      "time": "11h48",
-      "headline": "IPCA-15 acelera a 0,70% em setembro, acima do esperado"
+      "time": "14h50",
+      "headline": "Focus: inflação sobe e PIB cai para 2026"
     },
     {
-      "time": "11h48",
-      "headline": "IPCA-15 acima do esperado pressiona juros curtos"
+      "time": "14h50",
+      "headline": "Dólar sobe a R$ 5,22 com risco geopolítico e pesquisa eleitoral"
     },
     {
-      "time": "11h48",
-      "headline": "Contenção de gastos cai e déficit real sobe a R$ 80,9 bi"
+      "time": "14h50",
+      "headline": "DI futuro sobe forte com Treasuries e pesquisa eleitoral"
     },
     {
-      "time": "11h48",
-      "headline": "Ibovespa cai com Petrobras e IPCA-15 acima do esperado"
+      "time": "14h50",
+      "headline": "Quaest: Lula lidera 1º turno, empata com Flávio no 2º"
     },
     {
-      "time": "11h48",
-      "headline": "Nova regra de FIDCs gera reação no setor de special situations"
-    },
-    {
-      "time": "20h39",
-      "headline": "DI cai com otimismo eleitoral e petróleo em baixa"
-    },
-    {
-      "time": "20h39",
-      "headline": "Ibovespa fecha em queda, mas encurta perdas com bancos"
-    },
-    {
-      "time": "20h39",
-      "headline": "Dólar recua no dia, mas sobe 0,72% na semana"
-    },
-    {
-      "time": "20h39",
-      "headline": "Mercado vê mais alta nos spreads de crédito até dezembro"
-    },
-    {
-      "time": "20h39",
-      "headline": "Governo proíbe bets no país"
+      "time": "14h50",
+      "headline": "Petróleo sobe quase 3% com tensão EUA-Irã"
     }
   ]
 }
