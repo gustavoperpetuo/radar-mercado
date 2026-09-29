@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-09-29",
   "headlines": [
     {
-      "time": "14h50",
-      "headline": "Focus: inflação sobe e PIB cai para 2026"
+      "time": "13h10",
+      "headline": "Governo central tem déficit de R$ 13,6 bi em agosto"
     },
     {
-      "time": "14h50",
-      "headline": "Dólar sobe a R$ 5,22 com risco geopolítico e pesquisa eleitoral"
+      "time": "13h10",
+      "headline": "Inadimplência bancária bate novo recorde em agosto"
     },
     {
-      "time": "14h50",
-      "headline": "DI futuro sobe forte com Treasuries e pesquisa eleitoral"
+      "time": "13h10",
+      "headline": "Tesouro vê R$ 67,5 bi extras em 2026 com efeitos da guerra"
     },
     {
-      "time": "14h50",
-      "headline": "Quaest: Lula lidera 1º turno, empata com Flávio no 2º"
+      "time": "13h10",
+      "headline": "Tesouro vê leve melhora na trajetória do déficit"
     },
     {
-      "time": "14h50",
-      "headline": "Petróleo sobe quase 3% com tensão EUA-Irã"
-    },
-    {
-      "time": "21h39",
-      "headline": "Citi vê Flávio favorito e aposta no real"
-    },
-    {
-      "time": "21h39",
-      "headline": "Emergentes têm pior mês desde guerra EUA-Irã"
-    },
-    {
-      "time": "21h39",
-      "headline": "Bund de 10 anos bate máxima em 17 anos"
-    },
-    {
-      "time": "21h39",
-      "headline": "Cook vê IA e petróleo pressionando inflação nos EUA"
-    },
-    {
-      "time": "21h39",
-      "headline": "Colômbia negocia financiamento com o FMI"
+      "time": "13h10",
+      "headline": "Desemprego recua a 5,3% no trimestre até agosto"
     }
   ]
 }
