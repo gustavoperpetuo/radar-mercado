@@ -1,37 +1,25 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-09-30",
   "headlines": [
     {
-      "time": "13h10",
-      "headline": "Governo central tem déficit de R$ 13,6 bi em agosto"
+      "time": "13h07",
+      "headline": "Juros futuros caem com otimismo eleitoral e PCE fraco nos EUA"
     },
     {
-      "time": "13h10",
-      "headline": "Inadimplência bancária bate novo recorde em agosto"
+      "time": "13h07",
+      "headline": "Dólar cai forte com otimismo pré-eleição"
     },
     {
-      "time": "13h10",
-      "headline": "Tesouro vê R$ 67,5 bi extras em 2026 com efeitos da guerra"
+      "time": "13h07",
+      "headline": "HSBC vê Ibovespa com potencial de alta de 35%"
     },
     {
-      "time": "13h10",
-      "headline": "Tesouro vê leve melhora na trajetória do déficit"
+      "time": "13h07",
+      "headline": "Natixis: mercado teme fiscal em qualquer cenário eleitoral"
     },
     {
-      "time": "13h10",
-      "headline": "Desemprego recua a 5,3% no trimestre até agosto"
-    },
-    {
-      "time": "20h59",
-      "headline": "Juros futuros recuam com apoio externo e apetite por risco"
-    },
-    {
-      "time": "20h59",
-      "headline": "VIX Brasil renova recorde acima de 32 pontos"
-    },
-    {
-      "time": "20h59",
-      "headline": "Williams vê Fed sem pressa para mexer nos juros"
+      "time": "13h07",
+      "headline": "Citi rebaixa Moderna e vê tombo de 60%"
     }
   ]
 }
