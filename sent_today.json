@@ -1,45 +1,25 @@
 {
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "headlines": [
     {
-      "time": "13h07",
-      "headline": "Juros futuros caem com otimismo eleitoral e PCE fraco nos EUA"
+      "time": "13h43",
+      "headline": "Pix por aproximação sem teto de R$ 500"
     },
     {
-      "time": "13h07",
-      "headline": "Dólar cai forte com otimismo pré-eleição"
+      "time": "13h43",
+      "headline": "Goldman vê juros como melhor aposta eleitoral no Brasil"
     },
     {
-      "time": "13h07",
-      "headline": "HSBC vê Ibovespa com potencial de alta de 35%"
+      "time": "13h43",
+      "headline": "Petróleo dispara e pressiona ativos brasileiros"
     },
     {
-      "time": "13h07",
-      "headline": "Natixis: mercado teme fiscal em qualquer cenário eleitoral"
+      "time": "13h43",
+      "headline": "EUA pressionam Europa a liberar estoques de diesel"
     },
     {
-      "time": "13h07",
-      "headline": "Citi rebaixa Moderna e vê tombo de 60%"
-    },
-    {
-      "time": "21h13",
-      "headline": "Goldman vê juros como melhor aposta pré-eleição no Brasil"
-    },
-    {
-      "time": "21h13",
-      "headline": "LFTs sob pressão com trade eleitoral"
-    },
-    {
-      "time": "21h13",
-      "headline": "Colômbia sobe juro básico a 12,25%, maior em dois anos"
-    },
-    {
-      "time": "21h13",
-      "headline": "Spread de debênture de infra é o maior desde 2024"
-    },
-    {
-      "time": "21h13",
-      "headline": "EUA vão propor novo escopo de negociação sobre tarifaço"
+      "time": "13h43",
+      "headline": "Gilt de 30 anos do Reino Unido toca 6%, maior nível desde 1998"
     }
   ]
 }
