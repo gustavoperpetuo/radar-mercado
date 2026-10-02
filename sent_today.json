@@ -1,45 +1,25 @@
 {
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "headlines": [
     {
-      "time": "13h43",
-      "headline": "Pix por aproximação sem teto de R$ 500"
+      "time": "12h59",
+      "headline": "EUA criam só 29 mil vagas em setembro"
     },
     {
-      "time": "13h43",
-      "headline": "Goldman vê juros como melhor aposta eleitoral no Brasil"
+      "time": "12h59",
+      "headline": "Eleição movimenta demanda por NTN-B"
     },
     {
-      "time": "13h43",
-      "headline": "Petróleo dispara e pressiona ativos brasileiros"
+      "time": "12h59",
+      "headline": "Governo adia MP do Imposto Seletivo para depois do 2º turno"
     },
     {
-      "time": "13h43",
-      "headline": "EUA pressionam Europa a liberar estoques de diesel"
+      "time": "12h59",
+      "headline": "Juros do Tesouro Direto sobem na véspera do 1º turno"
     },
     {
-      "time": "13h43",
-      "headline": "Gilt de 30 anos do Reino Unido toca 6%, maior nível desde 1998"
-    },
-    {
-      "time": "21h17",
-      "headline": "MP do Imposto Seletivo fica para depois das eleições"
-    },
-    {
-      "time": "21h17",
-      "headline": "Juros futuros sobem com petróleo e aversão a risco global"
-    },
-    {
-      "time": "21h17",
-      "headline": "Dólar sobe forte com risco global maior"
-    },
-    {
-      "time": "21h17",
-      "headline": "Petróleo salta 4% com risco de novos ataques ao Irã"
-    },
-    {
-      "time": "21h17",
-      "headline": "PF convoca Galípolo, Esteves e Campos Neto no caso Master"
+      "time": "12h59",
+      "headline": "Diap projeta baixa renovação na Câmara e Senado mais à direita"
     }
   ]
 }
