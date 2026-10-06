@@ -1,45 +1,25 @@
 {
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "headlines": [
     {
-      "time": "15h53",
-      "headline": "Opções de Copom passam a precificar corte de 0,50 em dezembro"
+      "time": "13h18",
+      "headline": "J.P. Morgan eleva real e juros brasileiros para overweight"
     },
     {
-      "time": "15h53",
-      "headline": "J.P. Morgan eleva Brasil para overweight pós-1º turno"
+      "time": "13h18",
+      "headline": "Morgan Stanley eleva Brasil para overweight em ações"
     },
     {
-      "time": "15h53",
-      "headline": "Bancos veem Ibovespa subindo até 45% com vitória de Flávio"
+      "time": "13h18",
+      "headline": "Rali pós-1º turno escancara ruptura entre Lula e mercado"
     },
     {
-      "time": "15h53",
-      "headline": "NTN-Bs recuam a menos de 7% após 1º turno"
+      "time": "13h18",
+      "headline": "Febraban eleva projeção de inadimplência para 6,1%"
     },
     {
-      "time": "15h53",
-      "headline": "B3 amplia limites do DI com juros em mínimas"
-    },
-    {
-      "time": "22h34",
-      "headline": "Dólar tem maior queda diária em 8 anos pós-1º turno"
-    },
-    {
-      "time": "22h34",
-      "headline": "DI longo despenca após Flávio à frente de Lula no 1º turno"
-    },
-    {
-      "time": "22h34",
-      "headline": "Mercado reage bem a virada eleitoral no 1º turno"
-    },
-    {
-      "time": "22h34",
-      "headline": "Bradesco BBI eleva alvos de Petrobras, Cosan e Compass"
-    },
-    {
-      "time": "22h34",
-      "headline": "Opções perdem prêmio após 1º turno"
+      "time": "13h18",
+      "headline": "J.P. Morgan troca BB por Bradesco entre bancos"
     }
   ]
 }
