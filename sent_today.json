@@ -1,45 +1,25 @@
 {
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "headlines": [
     {
-      "time": "14h04",
-      "headline": "Treasury de 10 anos bate 5,3% e pressiona bolsas em NY"
+      "time": "14h00",
+      "headline": "Petróleo dispara e pressiona ativos globais"
     },
     {
-      "time": "14h04",
-      "headline": "Estrangeiro bate recorde de aporte na bolsa pós-eleição"
+      "time": "14h00",
+      "headline": "Juros europeus sobem, Gilt de 30 anos passa de 6%"
     },
     {
-      "time": "14h04",
-      "headline": "Fed hawkish gera saída de capital de emergentes"
+      "time": "14h00",
+      "headline": "DI longo cai forte após maior leilão prefixado desde 2020"
     },
     {
-      "time": "14h04",
-      "headline": "Juros futuros têm sessão de movimentos contidos"
+      "time": "14h00",
+      "headline": "Ibovespa sobe com otimismo eleitoral, ignora exterior"
     },
     {
-      "time": "14h04",
-      "headline": "Ibovespa recua com realização de lucros"
-    },
-    {
-      "time": "21h29",
-      "headline": "STF tira crédito presumido de ICMS do PIS/Cofins"
-    },
-    {
-      "time": "21h29",
-      "headline": "Fluxo cambial tem pior setembro desde 2019"
-    },
-    {
-      "time": "21h29",
-      "headline": "Ata do Fed indica mais uma alta de juros em 2025"
-    },
-    {
-      "time": "21h29",
-      "headline": "Flávio Bolsonaro quer acabar com split payment, diz porta-voz"
-    },
-    {
-      "time": "21h29",
-      "headline": "Plano fiscal de Flávio volta a circular na Faria Lima"
+      "time": "14h00",
+      "headline": "Irã amplia ameaça de bloqueio em Ormuz"
     }
   ]
 }
