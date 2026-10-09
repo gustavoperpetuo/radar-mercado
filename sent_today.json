@@ -1,45 +1,25 @@
 {
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "headlines": [
     {
-      "time": "14h00",
-      "headline": "Petróleo dispara e pressiona ativos globais"
+      "time": "13h39",
+      "headline": "IPCA acelera a 0,82% em setembro e estoura teto da meta"
     },
     {
-      "time": "14h00",
-      "headline": "Juros europeus sobem, Gilt de 30 anos passa de 6%"
+      "time": "13h39",
+      "headline": "IPCA de setembro estoura teto e racha aposta sobre Selic"
     },
     {
-      "time": "14h00",
-      "headline": "DI longo cai forte após maior leilão prefixado desde 2020"
+      "time": "13h39",
+      "headline": "Juros longos caem com rali eleitoral, IPCA pesa menos"
     },
     {
-      "time": "14h00",
-      "headline": "Ibovespa sobe com otimismo eleitoral, ignora exterior"
+      "time": "13h39",
+      "headline": "Real se fortalece com cenário eleitoral mais claro"
     },
     {
-      "time": "14h00",
-      "headline": "Irã amplia ameaça de bloqueio em Ormuz"
-    },
-    {
-      "time": "21h43",
-      "headline": "Datafolha: Flávio 49% x Lula 45% no 2º turno"
-    },
-    {
-      "time": "21h43",
-      "headline": "Datafolha: Flávio Bolsonaro lidera 2º turno com 49%"
-    },
-    {
-      "time": "21h43",
-      "headline": "Fed: Musalem defende juros mais restritivos para domar inflação"
-    },
-    {
-      "time": "21h43",
-      "headline": "Governo retém R$ 731,9 mi da CVM previstos no Orçamento"
-    },
-    {
-      "time": "21h43",
-      "headline": "MP do Imposto Seletivo só após eleições, diz Durigan"
+      "time": "13h39",
+      "headline": "Governo amplia subsídios a combustíveis por 30 dias"
     }
   ]
 }
