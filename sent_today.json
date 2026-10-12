@@ -1,45 +1,21 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-12",
   "headlines": [
     {
-      "time": "13h39",
-      "headline": "IPCA acelera a 0,82% em setembro e estoura teto da meta"
+      "time": "16h25",
+      "headline": "Spread de juros reais Brasil-EUA no menor nível em 2 anos"
     },
     {
-      "time": "13h39",
-      "headline": "IPCA de setembro estoura teto e racha aposta sobre Selic"
+      "time": "16h25",
+      "headline": "Petróleo sobe acima de US$ 105 com tensão no Oriente Médio"
     },
     {
-      "time": "13h39",
-      "headline": "Juros longos caem com rali eleitoral, IPCA pesa menos"
+      "time": "16h25",
+      "headline": "Hammack defende ajustes rápidos de juros no Fed"
     },
     {
-      "time": "13h39",
-      "headline": "Real se fortalece com cenário eleitoral mais claro"
-    },
-    {
-      "time": "13h39",
-      "headline": "Governo amplia subsídios a combustíveis por 30 dias"
-    },
-    {
-      "time": "21h21",
-      "headline": "Dólar cai 4,43% na semana, pior pós-1º turno desde o real"
-    },
-    {
-      "time": "21h21",
-      "headline": "Ibovespa bate recorde e fecha acima de 209 mil pontos"
-    },
-    {
-      "time": "21h21",
-      "headline": "Juros longos despencam com rali eleitoral"
-    },
-    {
-      "time": "21h21",
-      "headline": "Petróleo fecha em alta com temores de oferta"
-    },
-    {
-      "time": "21h21",
-      "headline": "Dólar casado piora e abre espaço para novo leilão do BC"
+      "time": "16h25",
+      "headline": "Dólar sobe no exterior com liquidez reduzida"
     }
   ]
 }
