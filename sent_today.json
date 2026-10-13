@@ -1,29 +1,25 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "headlines": [
     {
-      "time": "16h25",
-      "headline": "Spread de juros reais Brasil-EUA no menor nível em 2 anos"
+      "time": "14h11",
+      "headline": "Focus: Selic 2026 cai para 13,25% e IPCA sobe"
     },
     {
-      "time": "16h25",
-      "headline": "Petróleo sobe acima de US$ 105 com tensão no Oriente Médio"
+      "time": "14h11",
+      "headline": "Juros sobem com incerteza sobre 2º turno"
     },
     {
-      "time": "16h25",
-      "headline": "Hammack defende ajustes rápidos de juros no Fed"
+      "time": "14h11",
+      "headline": "Dólar sobe com petróleo e pesquisa eleitoral no radar"
     },
     {
-      "time": "16h25",
-      "headline": "Dólar sobe no exterior com liquidez reduzida"
+      "time": "14h11",
+      "headline": "FMI reduz previsão de crescimento do Brasil para 2026 e 2027"
     },
     {
-      "time": "23h16",
-      "headline": "Bolsa brasileira ganha tração com otimismo eleitoral"
-    },
-    {
-      "time": "23h16",
-      "headline": "Ataques houthis fecham aeroporto de Riad até sábado"
+      "time": "14h11",
+      "headline": "Senado vota PEC do fim da escala 6x1 nesta quarta"
     }
   ]
 }
